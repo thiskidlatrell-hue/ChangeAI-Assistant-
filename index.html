@@ -1,0 +1,2870 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>ChangeAI Assistant — Encrypted Executive Command Center</title>
+  <meta name="description" content="Encrypted private executive command center and multi-business portfolio assistant for ChangeAI." />
+  <meta name="theme-color" content="#090d16" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ChangeAI Assistant" />
+  <meta name="mobile-web-app-capable" content="yes" />
+
+  <!-- Embedded SVG App Icon -->
+  <link id="app-icon-link" rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2310b981'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='%23090d16'/%3E%3Crect x='24' y='24' width='464' height='464' rx='96' fill='none' stroke='url(%23g)' stroke-width='16'/%3E%3Cpath d='M165 180h182M165 256h130M165 332h182' stroke='url(%23g)' stroke-width='34' stroke-linecap='round'/%3E%3Ccircle cx='356' cy='256' r='22' fill='%2310b981'/%3E%3C/svg%3E" />
+  <link id="apple-touch-icon-link" rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%2310b981'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='512' height='512' rx='112' fill='%23090d16'/%3E%3Crect x='24' y='24' width='464' height='464' rx='96' fill='none' stroke='url(%23g)' stroke-width='16'/%3E%3Cpath d='M165 180h182M165 256h130M165 332h182' stroke='url(%23g)' stroke-width='34' stroke-linecap='round'/%3E%3Ccircle cx='356' cy='256' r='22' fill='%2310b981'/%3E%3C/svg%3E" />
+  <link id="pwa-manifest-link" rel="manifest" href="" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            obsidian: {
+              950: '#060911',
+              900: '#090d16',
+              850: '#0e1422',
+              800: '#131b2e',
+              700: '#1d2842'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #060911;
+      color: #f1f5f9;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .glass-panel {
+      background: rgba(14, 20, 34, 0.86);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(51, 65, 85, 0.55);
+    }
+    .keypad-btn {
+      transition: transform 0.08s ease, background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .keypad-btn:active {
+      transform: scale(0.94);
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .animate-shake {
+      animation: shake 0.35s ease-in-out;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-emerald-500/30 selection:text-emerald-200">
+
+  <!-- Toast Notification Banner -->
+  <div id="toast-container" class="fixed bottom-20 md:bottom-6 right-4 left-4 md:left-auto md:w-96 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+  <!-- ===================================================================== -->
+  <!-- 1. ENCRYPTED VAULT LOCK SCREEN, SETUP & RECOVERY FLOW                  -->
+  <!-- ===================================================================== -->
+  <div id="lock-screen" class="fixed inset-0 z-40 bg-obsidian-950/98 backdrop-blur-xl flex flex-col items-center justify-center p-4 overflow-y-auto">
+    <div class="w-full max-w-md glass-panel rounded-3xl p-6 sm:p-7 shadow-2xl shadow-emerald-950/20 my-auto">
+      <div class="text-center">
+        <div class="mx-auto w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40 flex items-center justify-center mb-3">
+          <svg class="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 mb-1.5">
+          AES-256-GCM Encrypted Vault
+        </span>
+        <h1 id="lock-title" class="text-xl font-bold text-white tracking-tight">ChangeAI Assistant</h1>
+        <p id="lock-subtitle" class="text-xs text-slate-400 mt-1">Enter your secret PIN or passphrase to decrypt your vault.</p>
+      </div>
+
+      <!-- Mode Switcher (Shown when an encrypted vault already exists) -->
+      <div id="vault-mode-tabs" class="hidden grid-cols-2 gap-1.5 p-1 rounded-xl bg-obsidian-950/90 border border-slate-800 mt-4">
+        <button type="button" id="mode-unlock-tab" class="py-1.5 px-2 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition">
+          Unlock Vault
+        </button>
+        <button type="button" id="mode-recover-tab" class="py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition">
+          Reset via Recovery Key
+        </button>
+      </div>
+
+      <!-- VIEW A: UNLOCK EXISTING VAULT -->
+      <div id="view-unlock" class="hidden mt-4 space-y-4">
+        <div>
+          <label for="unlock-secret-input" class="block text-xs text-slate-400 mb-1.5">Secret PIN or Passphrase</label>
+          <div class="flex gap-2">
+            <input
+              type="password"
+              id="unlock-secret-input"
+              autocomplete="current-password"
+              placeholder="Enter PIN or passphrase..."
+              class="flex-1 bg-obsidian-800 border border-slate-700 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white placeholder-slate-500 focus:outline-none"
+            />
+            <button
+              type="button"
+              id="unlock-submit-btn"
+              class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs shrink-0 transition"
+            >
+              Decrypt
+            </button>
+          </div>
+        </div>
+
+        <!-- Optional Numeric Keypad Helper -->
+        <div class="pt-1">
+          <div class="flex items-center justify-between text-[11px] text-slate-500 mb-2">
+            <span>Quick PIN Pad (appends digits)</span>
+            <button type="button" id="unlock-clear-btn" class="text-slate-400 hover:text-white underline">Clear</button>
+          </div>
+          <div id="unlock-keypad" class="grid grid-cols-3 gap-2 max-w-[240px] mx-auto select-none">
+            <button type="button" data-unlock-digit="1" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">1</button>
+            <button type="button" data-unlock-digit="2" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">2</button>
+            <button type="button" data-unlock-digit="3" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">3</button>
+            <button type="button" data-unlock-digit="4" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">4</button>
+            <button type="button" data-unlock-digit="5" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">5</button>
+            <button type="button" data-unlock-digit="6" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">6</button>
+            <button type="button" data-unlock-digit="7" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">7</button>
+            <button type="button" data-unlock-digit="8" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">8</button>
+            <button type="button" data-unlock-digit="9" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">9</button>
+            <button type="button" id="unlock-toggle-vis-btn" class="keypad-btn py-2.5 rounded-xl bg-obsidian-900 hover:bg-obsidian-800 border border-slate-800 text-[11px] font-semibold text-slate-400">Show</button>
+            <button type="button" data-unlock-digit="0" class="keypad-btn py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-sm font-semibold text-white">0</button>
+            <button type="button" id="unlock-back-btn" class="keypad-btn py-2.5 rounded-xl bg-obsidian-900 hover:bg-obsidian-800 border border-slate-800 text-xs font-semibold text-slate-300">⌫</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW B: FIRST-TIME ENCRYPTED VAULT SETUP -->
+      <form id="view-setup" class="hidden mt-4 space-y-3">
+        <div>
+          <label for="setup-secret-input" class="block text-xs text-slate-300 mb-1">Create Secret PIN or Passphrase (4+ chars; 8+ recommended)</label>
+          <input
+            type="password"
+            id="setup-secret-input"
+            required
+            minlength="4"
+            autocomplete="new-password"
+            placeholder="e.g., NightOwl#2026 or 6-digit PIN"
+            class="w-full bg-obsidian-800 border border-slate-700 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white placeholder-slate-500 focus:outline-none"
+          />
+        </div>
+        <div>
+          <label for="setup-confirm-input" class="block text-xs text-slate-300 mb-1">Confirm Secret PIN or Passphrase</label>
+          <input
+            type="password"
+            id="setup-confirm-input"
+            required
+            minlength="4"
+            autocomplete="new-password"
+            placeholder="Re-enter to confirm"
+            class="w-full bg-obsidian-800 border border-slate-700 focus:border-emerald-500 rounded-xl px-3.5 py-2.5 text-sm font-mono text-white placeholder-slate-500 focus:outline-none"
+          />
+        </div>
+        <button
+          type="submit"
+          id="setup-create-btn"
+          class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs sm:text-sm shadow-lg shadow-emerald-500/20 transition"
+        >
+          Encrypt Vault &amp; Generate Recovery Key
+        </button>
+      </form>
+
+      <!-- VIEW C: ONE-TIME RECOVERY KEY DISPLAY AFTER SETUP -->
+      <div id="view-recovery-badge" class="hidden mt-4 space-y-3.5">
+        <div class="p-3.5 rounded-2xl bg-amber-500/10 border border-amber-500/35 space-y-2">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-amber-300">Save Your Master Recovery Key</div>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Your passphrase is <strong class="text-white">never stored</strong> in code or storage. Save this key offline—it is the only way to reset a forgotten passphrase while keeping your encrypted data intact.
+          </p>
+          <div class="flex items-center justify-between gap-2 p-2.5 rounded-xl bg-obsidian-950 border border-slate-700">
+            <code id="generated-recovery-key-display" class="text-xs sm:text-sm font-mono font-bold text-emerald-400 select-all break-all"></code>
+            <button type="button" id="copy-recovery-key-btn" class="px-2.5 py-1 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 text-[11px] font-semibold text-cyan-300 border border-slate-700 shrink-0">
+              Copy
+            </button>
+          </div>
+        </div>
+        <button
+          type="button"
+          id="enter-vault-after-key-btn"
+          class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs sm:text-sm transition"
+        >
+          I Saved It — Open Encrypted Vault
+        </button>
+      </div>
+
+      <!-- VIEW D: RESET FORGOTTEN SECRET USING MASTER RECOVERY KEY -->
+      <form id="view-recover" class="hidden mt-4 space-y-3">
+        <div>
+          <label for="recover-key-input" class="block text-xs text-slate-300 mb-1">Master Recovery Key</label>
+          <input
+            type="text"
+            id="recover-key-input"
+            required
+            placeholder="CAI-XXXX-XXXX-XXXX"
+            class="w-full bg-obsidian-800 border border-slate-700 focus:border-amber-400 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-mono uppercase text-white placeholder-slate-500 focus:outline-none"
+          />
+        </div>
+        <div>
+          <label for="recover-new-secret-input" class="block text-xs text-slate-300 mb-1">New Secret PIN or Passphrase (4+ chars)</label>
+          <input
+            type="password"
+            id="recover-new-secret-input"
+            required
+            minlength="4"
+            placeholder="Enter new secret PIN or passphrase"
+            class="w-full bg-obsidian-800 border border-slate-700 focus:border-emerald-500 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-mono text-white placeholder-slate-500 focus:outline-none"
+          />
+        </div>
+        <div>
+          <label for="recover-confirm-secret-input" class="block text-xs text-slate-300 mb-1">Confirm New Secret</label>
+          <input
+            type="password"
+            id="recover-confirm-secret-input"
+            required
+            minlength="4"
+            placeholder="Re-enter new secret"
+            class="w-full bg-obsidian-800 border border-slate-700 focus:border-emerald-500 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-mono text-white placeholder-slate-500 focus:outline-none"
+          />
+        </div>
+        <button
+          type="submit"
+          class="w-full py-2.5 px-4 rounded-xl bg-amber-400 hover:bg-amber-300 text-obsidian-950 font-bold text-xs transition"
+        >
+          Verify Recovery Key &amp; Re-Encrypt Vault
+        </button>
+      </form>
+
+      <p id="lock-error" class="text-xs text-rose-400 min-h-[18px] mt-3 text-center font-medium"></p>
+
+      <!-- Honest Security & Privacy Notice -->
+      <div class="mt-4 pt-3.5 border-t border-slate-800/80 text-[11px] text-slate-400 leading-relaxed text-left space-y-1">
+        <p><strong class="text-slate-200">How Code Inspection Is Blocked:</strong> All saved data is encrypted in browser storage using <span class="font-mono text-emerald-300">PBKDF2 + AES-256-GCM</span>. No PIN or password is stored anywhere in the source code or storage.</p>
+        <p><strong class="text-slate-300">Security Scope:</strong> Use a strong passphrase (8+ characters) rather than a short PIN to resist offline guessing, host over <span class="font-mono text-cyan-300">https://</span>, and avoid saving sensitive banking credentials or external passwords inside a browser app.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- 2. MAIN EXECUTIVE APPLICATION SHELL (HIDDEN UNTIL DECRYPTED)          -->
+  <!-- ===================================================================== -->
+  <div id="app-shell" class="hidden flex-1 flex flex-col pb-20 md:pb-6">
+
+    <!-- Top Executive Header -->
+    <header class="sticky top-0 z-30 bg-obsidian-900/90 backdrop-blur-lg border-b border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+        <!-- Brand & Title -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 p-[1px] shrink-0">
+            <div class="w-full h-full rounded-[11px] bg-obsidian-900 flex items-center justify-center">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h1 class="text-sm sm:text-base font-bold text-white tracking-tight">ChangeAI Assistant</h1>
+              <span class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">AES-256 Vault</span>
+            </div>
+            <p class="text-[11px] text-slate-400">Parent Brand: <span class="text-emerald-400 font-medium">ChangeAI</span> • <span id="header-project-count" class="text-slate-300 font-medium">3 Active Projects</span></p>
+          </div>
+        </div>
+
+        <!-- Live Night-Owl Sprint Indicator + Quick Controls -->
+        <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+          <div class="flex items-center gap-2 px-2.5 py-1.5 rounded-xl bg-obsidian-800 border border-slate-700/80">
+            <button type="button" id="sprint-toggle-btn" class="flex items-center gap-1.5 text-xs font-semibold text-emerald-400 hover:text-emerald-300" title="Toggle 8:00 PM – 10:30 PM Night-Owl Sprint Timer">
+              <span id="sprint-dot" class="w-2 h-2 rounded-full bg-slate-500"></span>
+              <span class="hidden sm:inline">Night-Owl</span>
+              <span id="sprint-timer-display" class="font-mono text-xs text-white">02:30:00</span>
+            </button>
+            <button type="button" id="sprint-reset-btn" class="text-[10px] text-slate-400 hover:text-white px-1.5 py-0.5 rounded bg-obsidian-900 border border-slate-700/60" title="Reset 2h 30m Sprint">
+              Reset
+            </button>
+          </div>
+
+          <button type="button" data-nav="projects" class="nav-trigger px-2.5 sm:px-3 py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/35 text-xs font-semibold text-emerald-300 flex items-center gap-1.5 transition">
+            <span>+ Venture</span>
+          </button>
+
+          <button type="button" data-nav="backup" class="nav-trigger px-2.5 sm:px-3 py-2 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/80 text-xs font-medium text-cyan-300 flex items-center gap-1.5 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+            <span class="hidden sm:inline">Backup</span>
+          </button>
+
+          <button type="button" id="lock-app-btn" class="px-2.5 sm:px-3 py-2 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 text-xs font-semibold text-rose-300 flex items-center gap-1.5 transition">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+            <span class="hidden sm:inline">Lock</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Tabs -->
+      <nav class="hidden md:block border-t border-slate-800/60 bg-obsidian-950/60">
+        <div class="max-w-7xl mx-auto px-6 flex items-center gap-1 overflow-x-auto">
+          <button type="button" data-tab="meeting" class="tab-btn active px-4 py-3 text-xs font-semibold border-b-2 border-emerald-400 text-emerald-400 flex items-center gap-2 whitespace-nowrap">
+            <span>1. 1-on-1 Strategy Meeting</span>
+          </button>
+          <button type="button" data-tab="projects" class="tab-btn px-4 py-3 text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+            <span>2. Ventures &amp; Projects Hub</span>
+          </button>
+          <button type="button" data-tab="cfo" class="tab-btn px-4 py-3 text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+            <span>3. Multi-Business CFO</span>
+          </button>
+          <button type="button" data-tab="receptionist" class="tab-btn px-4 py-3 text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+            <span>4. Sales Receptionist &amp; Leads</span>
+          </button>
+          <button type="button" data-tab="promo" class="tab-btn px-4 py-3 text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+            <span>5. Promo Studio (YouTube + Social) &amp; Sprint</span>
+          </button>
+          <button type="button" data-tab="motivation" class="tab-btn px-4 py-3 text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+            <span>6. Daily Motivation &amp; Email</span>
+          </button>
+          <button type="button" data-tab="backup" class="tab-btn px-4 py-3 text-xs font-semibold border-b-2 border-transparent text-slate-400 hover:text-slate-200 flex items-center gap-2 whitespace-nowrap">
+            <span>7. Backup, Sync &amp; Vault Security</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 pt-4 sm:pt-6">
+
+      <!-- =================================================================== -->
+      <!-- MODULE 1: 1-ON-1 BUSINESS MEETING AI CHAT                           -->
+      <!-- =================================================================== -->
+      <section id="tab-meeting" class="tab-panel space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="glass-panel rounded-2xl p-4 sm:p-5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">Executive Briefing Room</span>
+                <span id="ai-mode-badge" class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Executive Mode</span>
+              </div>
+              <h2 class="text-base font-bold text-white">1-on-1 Strategy Session</h2>
+              <p class="text-xs text-slate-400 mt-1.5 leading-relaxed">
+                I see all <strong id="meeting-project-count-text" class="text-slate-200">3 ventures</strong> in your ChangeAI portfolio. Ask anything in plain English—we will turn ideas into simple, $0-budget execution plans.
+              </p>
+
+              <div id="meeting-portfolio-pills" class="mt-3 flex flex-wrap gap-1.5"></div>
+
+              <div class="mt-4">
+                <p class="text-[11px] font-semibold text-slate-300 uppercase tracking-wider mb-2">Tap a Meeting Topic:</p>
+                <div class="flex flex-col gap-2">
+                  <button type="button" class="quick-prompt-btn text-left px-3 py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-xs text-slate-200 transition flex items-center justify-between group" data-prompt="Plan tonight's 8:00 PM – 10:30 PM Night-Owl sprint across my active ChangeAI projects so I make real progress without getting overwhelmed.">
+                    <span>Plan tonight's 8:00 PM sprint</span>
+                    <span class="text-emerald-400 group-hover:translate-x-0.5 transition">→</span>
+                  </button>
+                  <button type="button" class="quick-prompt-btn text-left px-3 py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-xs text-slate-200 transition flex items-center justify-between group" data-prompt="Review all my current ventures in ChangeAI and tell me which one has the fastest path to first $100 on a $0 budget.">
+                    <span>Fastest path to $100 across ventures</span>
+                    <span class="text-emerald-400 group-hover:translate-x-0.5 transition">→</span>
+                  </button>
+                  <button type="button" class="quick-prompt-btn text-left px-3 py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-xs text-slate-200 transition flex items-center justify-between group" data-prompt="Give me a YouTube Shorts + WhatsApp $0 marketing plan for my Chemistry Study Chatbot this week.">
+                    <span>YouTube + WhatsApp $0 growth plan</span>
+                    <span class="text-emerald-400 group-hover:translate-x-0.5 transition">→</span>
+                  </button>
+                  <button type="button" class="quick-prompt-btn text-left px-3 py-2.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700/70 text-xs text-slate-200 transition flex items-center justify-between group" data-prompt="Help me validate a brand-new business project idea under ChangeAI using a simple 3-step $0 test.">
+                    <span>Validate a new ChangeAI project</span>
+                    <span class="text-emerald-400 group-hover:translate-x-0.5 transition">→</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
+                <span class="text-[11px] text-slate-400">Encrypted Locally</span>
+                <button type="button" id="clear-chat-btn" class="text-[11px] text-rose-400 hover:text-rose-300 font-medium">Clear Transcript</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 glass-panel rounded-2xl flex flex-col h-[68vh] sm:h-[640px] overflow-hidden">
+            <div class="px-4 py-3 border-b border-slate-800 flex items-center justify-between bg-obsidian-900/60">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-xs">
+                  AI
+                </div>
+                <div>
+                  <h3 class="text-xs sm:text-sm font-semibold text-white">ChangeAI Executive Partner</h3>
+                  <p class="text-[11px] text-slate-400">Portfolio-Aware • Plain-English Action Plans</p>
+                </div>
+              </div>
+              <span id="meeting-date-badge" class="text-[11px] font-mono text-slate-400"></span>
+            </div>
+
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-3.5"></div>
+
+            <form id="chat-form" class="p-3 border-t border-slate-800 bg-obsidian-900/80 flex items-end gap-2">
+              <textarea
+                id="chat-input"
+                rows="1"
+                placeholder="Ask a business question, discuss a venture, or plan your next step..."
+                class="flex-1 bg-obsidian-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 resize-none max-h-32"
+              ></textarea>
+              <button
+                type="submit"
+                id="chat-send-btn"
+                class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-sm shrink-0 transition flex items-center gap-1.5"
+              >
+                <span>Send</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" /></svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- MODULE 2: MULTI-BUSINESS & VENTURES HUB (ADD / EDIT / PORTFOLIO)    -->
+      <!-- =================================================================== -->
+      <section id="tab-projects" class="tab-panel hidden space-y-5">
+        <div class="glass-panel rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">ChangeAI Parent Holding Portfolio</span>
+            <h2 class="text-base sm:text-lg font-bold text-white mt-0.5">Business Ventures &amp; Projects Hub</h2>
+            <p class="text-xs text-slate-400 mt-1">
+              Add or update any business project here. It automatically syncs across your CFO Tracker, Receptionist Call Logger, YouTube/Social Promo Studio, and 1-on-1 Strategy Chat.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 shrink-0">
+            <span id="portfolio-total-badge" class="px-3 py-1.5 rounded-xl bg-obsidian-800 border border-slate-700 text-xs font-mono text-cyan-300">3 Ventures</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <form id="project-form" class="lg:col-span-4 glass-panel rounded-2xl p-4 sm:p-5 space-y-3 h-fit">
+            <div class="flex items-center justify-between">
+              <h3 id="project-form-title" class="text-sm font-bold text-white">+ Add New Business / Project</h3>
+              <button type="button" id="project-cancel-edit-btn" class="hidden text-[11px] text-amber-400 hover:text-amber-300 font-medium">Cancel Edit</button>
+            </div>
+            <input type="hidden" id="project-edit-id" value="" />
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Business / Project Name *</label>
+              <input type="text" id="project-name" required placeholder="e.g., Physics Exam Solver Bot" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Category / Niche</label>
+                <select id="project-category" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-2.5 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                  <option value="EdTech">EdTech</option>
+                  <option value="AI Micro-SaaS">AI Micro-SaaS</option>
+                  <option value="Marketplace">Marketplace</option>
+                  <option value="Digital Service">Digital Service</option>
+                  <option value="Content / Media">Content / Media</option>
+                  <option value="E-Commerce">E-Commerce</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Current Status</label>
+                <select id="project-status" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-2.5 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                  <option value="Planning">Planning</option>
+                  <option value="Building" selected>Building</option>
+                  <option value="Live">Live</option>
+                  <option value="Paused">Paused</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Pricing Model</label>
+                <input type="text" id="project-pricing" placeholder="e.g., Free + $1 / $3 Pass" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Target Launch Date</label>
+                <input type="date" id="project-launch-date" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-emerald-500" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Key Goal / Value Proposition</label>
+              <textarea id="project-goal" rows="2" placeholder="What problem does it solve and what is your first milestone?" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 resize-none"></textarea>
+            </div>
+
+            <button type="submit" id="project-submit-btn" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs transition shadow-lg shadow-emerald-500/15">
+              + Save &amp; Sync Project Everywhere
+            </button>
+          </form>
+
+          <div class="lg:col-span-8 space-y-3">
+            <div class="flex items-center justify-between px-1">
+              <h3 class="text-xs font-bold uppercase tracking-wider text-slate-300">Portfolio Overview (Live Financial &amp; Status Sync)</h3>
+              <span class="text-[11px] text-slate-400">Tap any card action to log revenue or generate promos</span>
+            </div>
+            <div id="portfolio-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- MODULE 3: MULTI-BUSINESS CFO & FINANCIAL TRACKER                    -->
+      <!-- =================================================================== -->
+      <section id="tab-cfo" class="tab-panel hidden space-y-5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 glass-panel rounded-2xl p-4">
+          <div>
+            <h2 class="text-base sm:text-lg font-bold text-white">Multi-Business CFO &amp; Valuation Engine</h2>
+            <p class="text-xs text-slate-400">Track revenue, expenses, CAC, margins, and enterprise value across every ChangeAI venture.</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <label for="cfo-venture-filter" class="text-xs text-slate-400 whitespace-nowrap">Filter Venture:</label>
+            <select id="cfo-venture-filter" class="bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"></select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-3">
+          <div class="glass-panel rounded-2xl p-4">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Total Revenue</span>
+            <p id="kpi-revenue" class="text-xl sm:text-2xl font-bold text-emerald-400 font-mono mt-1">$0.00</p>
+            <span class="text-[11px] text-slate-500 mt-1 block">Gross cash inflow</span>
+          </div>
+          <div class="glass-panel rounded-2xl p-4">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Net Profit</span>
+            <p id="kpi-profit" class="text-xl sm:text-2xl font-bold text-white font-mono mt-1">$0.00</p>
+            <span class="text-[11px] text-slate-500 mt-1 block">After COGS &amp; ads</span>
+          </div>
+          <div class="glass-panel rounded-2xl p-4">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">Gross Margin</span>
+            <p id="kpi-margin" class="text-xl sm:text-2xl font-bold text-cyan-400 font-mono mt-1">0.0%</p>
+            <span class="text-[11px] text-slate-500 mt-1 block">(Rev − COGS) / Rev</span>
+          </div>
+          <div class="glass-panel rounded-2xl p-4">
+            <span class="text-[11px] font-medium text-slate-400 uppercase tracking-wider">CAC (Per User)</span>
+            <p id="kpi-cac" class="text-xl sm:text-2xl font-bold text-amber-400 font-mono mt-1">$0.00</p>
+            <span class="text-[11px] text-slate-500 mt-1 block">Mktg Spend / Customers</span>
+          </div>
+          <div class="glass-panel rounded-2xl p-4 col-span-2 lg:col-span-1 border-emerald-500/30">
+            <span class="text-[11px] font-medium text-emerald-300 uppercase tracking-wider">Est. Enterprise Value</span>
+            <p id="kpi-valuation" class="text-xl sm:text-2xl font-bold text-emerald-300 font-mono mt-1">$0.00</p>
+            <span class="text-[11px] text-slate-400 mt-1 block">3× Annualized Run-Rate</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <form id="cfo-form" class="lg:col-span-4 glass-panel rounded-2xl p-4 sm:p-5 space-y-3 h-fit">
+            <h3 class="text-sm font-bold text-white">Log Financial Entry</h3>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Business Venture</label>
+              <select id="cfo-venture" required class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-500"></select>
+            </div>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Description / Tier Note</label>
+              <input type="text" id="cfo-note" required placeholder="e.g., 12 Micro Passes ($1) + 4 Main ($3)" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Revenue ($)</label>
+                <input type="number" id="cfo-revenue" step="0.01" min="0" value="0" required class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-emerald-500" />
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">COGS / Ops ($)</label>
+                <input type="number" id="cfo-cogs" step="0.01" min="0" value="0" required class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-emerald-500" />
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Marketing Spend ($)</label>
+                <input type="number" id="cfo-marketing" step="0.01" min="0" value="0" required class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-emerald-500" />
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">New Customers</label>
+                <input type="number" id="cfo-customers" step="1" min="0" value="0" required class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-emerald-500" />
+              </div>
+            </div>
+
+            <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-obsidian-950 font-bold text-xs transition shadow-lg shadow-emerald-500/15">
+              + Record Transaction
+            </button>
+          </form>
+
+          <div class="lg:col-span-8 glass-panel rounded-2xl p-4 sm:p-5 overflow-hidden">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="text-sm font-bold text-white">Venture Ledger</h3>
+              <span id="cfo-count-badge" class="text-xs text-slate-400">0 entries</span>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-800 text-[11px] uppercase text-slate-400">
+                    <th class="py-2.5 pr-3">Date / Venture</th>
+                    <th class="py-2.5 px-2">Note</th>
+                    <th class="py-2.5 px-2 text-right">Rev</th>
+                    <th class="py-2.5 px-2 text-right">Costs</th>
+                    <th class="py-2.5 px-2 text-right">Users</th>
+                    <th class="py-2.5 pl-2 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="cfo-ledger-body" class="divide-y divide-slate-800/60 text-xs"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- MODULE 4: SALESPERSON RECEPTIONIST CALL & LEAD LOGGER + PITCH SCRIPT -->
+      <!-- =================================================================== -->
+      <section id="tab-receptionist" class="tab-panel hidden space-y-5">
+        <div class="glass-panel rounded-2xl p-4 sm:p-5 border-cyan-500/30">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">Active Persona: Sales Receptionist</span>
+              <h2 class="text-sm sm:text-base font-bold text-white">Unavailable-Hours Pitch &amp; Callback Script</h2>
+            </div>
+            <button type="button" id="copy-script-btn" class="px-3 py-1.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 text-xs font-medium text-cyan-300 transition">
+              Copy Script
+            </button>
+          </div>
+          <div id="receptionist-script-text" class="bg-obsidian-950/80 border border-slate-800 rounded-xl p-3.5 text-xs sm:text-sm text-slate-200 leading-relaxed space-y-2"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <form id="lead-form" class="lg:col-span-4 glass-panel rounded-2xl p-4 sm:p-5 space-y-3 h-fit">
+            <h3 class="text-sm font-bold text-white">Log Call / Incoming Lead</h3>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Caller / Lead Name</label>
+              <input type="text" id="lead-name" required placeholder="e.g., Tariro Moyo" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+            </div>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Phone / WhatsApp / Email</label>
+              <input type="text" id="lead-contact" required placeholder="e.g., +263 77 123 4567" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5">
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Venture Interest</label>
+                <select id="lead-venture" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-2.5 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"></select>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Call Outcome</label>
+                <select id="lead-outcome" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-2.5 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                  <option value="Pitched & Interested">Pitched &amp; Interested</option>
+                  <option value="Callback Scheduled">Callback Scheduled</option>
+                  <option value="Voicemail Logged">Voicemail Logged</option>
+                  <option value="Converted">Converted</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Evening Callback Slot (8:00 PM+)</label>
+              <input type="text" id="lead-callback" value="8:15 PM Tonight" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500" />
+            </div>
+
+            <div>
+              <label class="block text-xs text-slate-400 mb-1">Receptionist Notes</label>
+              <textarea id="lead-notes" rows="2" placeholder="Wants $3 Main Pass for O-Level Chemistry revision..." class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs transition">
+              + Save Call &amp; Lead Log
+            </button>
+          </form>
+
+          <div class="lg:col-span-8 space-y-3">
+            <div class="glass-panel rounded-2xl p-3.5 flex flex-wrap items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <button type="button" data-lead-filter="ALL" class="lead-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">All</button>
+                <button type="button" data-lead-filter="Pitched & Interested" class="lead-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-obsidian-800 text-slate-400 hover:text-white">Pitched</button>
+                <button type="button" data-lead-filter="Callback Scheduled" class="lead-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-obsidian-800 text-slate-400 hover:text-white">Callbacks</button>
+                <button type="button" data-lead-filter="Converted" class="lead-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-obsidian-800 text-slate-400 hover:text-white">Converted</button>
+              </div>
+              <span id="lead-count-label" class="text-xs text-slate-400">0 leads logged</span>
+            </div>
+
+            <div id="leads-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- MODULE 5: DAILY SOCIAL PROMO GENERATOR (WITH YOUTUBE) & CHECKLIST   -->
+      <!-- =================================================================== -->
+      <section id="tab-promo" class="tab-panel hidden space-y-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <div class="lg:col-span-7 glass-panel rounded-2xl p-4 sm:p-5 space-y-4">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">$0 Organic Growth Engine</span>
+                <h2 class="text-base font-bold text-white mt-0.5">YouTube &amp; Social Promo Studio</h2>
+                <p class="text-xs text-slate-400 mt-1">Generate YouTube Shorts scripts, full YouTube Video SEO packs, WhatsApp Status hooks, TikTok/Reels, and Instagram captions for any ChangeAI project.</p>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-rose-500/15 border border-rose-500/30 text-[10px] font-bold uppercase tracking-wider text-rose-300 shrink-0">YouTube Ready</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Target Business / Project</label>
+                <select id="promo-venture" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500"></select>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Platform &amp; Content Format</label>
+                <select id="promo-channel" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-emerald-500">
+                  <option value="yt_shorts">YouTube Shorts (60s Script + Hook + Visual Cues)</option>
+                  <option value="yt_long">YouTube Video (Title, Thumbnail, Intro Hook &amp; Description)</option>
+                  <option value="whatsapp">WhatsApp Status / Student Group</option>
+                  <option value="tiktok">TikTok / Reels Short Hook</option>
+                  <option value="instagram">Instagram Caption + CTA</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="button" id="generate-promo-btn" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs transition">
+              Generate Fresh Promo Script / Copy
+            </button>
+
+            <div class="bg-obsidian-950/90 border border-slate-800 rounded-xl p-3.5 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span id="promo-format-badge" class="text-[11px] font-semibold text-cyan-400">YouTube Shorts (60s Script + Hook + Visual Cues)</span>
+                <button type="button" id="copy-promo-btn" class="px-2.5 py-1 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 text-xs text-emerald-300 border border-slate-700">
+                  Copy All
+                </button>
+              </div>
+              <textarea id="promo-output" rows="12" class="w-full bg-transparent text-xs sm:text-sm text-slate-200 focus:outline-none resize-y leading-relaxed font-sans"></textarea>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 glass-panel rounded-2xl p-4 sm:p-5 space-y-4 h-fit">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400">8:00 PM – 10:30 PM Execution Block</span>
+                <h2 class="text-base font-bold text-white mt-0.5">Night-Owl Sprint Checklist</h2>
+              </div>
+              <span id="checklist-progress" class="px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">0/0 Done</span>
+            </div>
+
+            <form id="sprint-task-form" class="flex gap-2">
+              <input type="text" id="sprint-task-input" required placeholder="Add a focused 15-min sprint task..." class="flex-1 bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+              <button type="submit" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-obsidian-950 font-bold text-xs shrink-0">
+                Add
+              </button>
+            </form>
+
+            <ul id="sprint-task-list" class="space-y-2 max-h-[420px] overflow-y-auto pr-1"></ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- MODULE 6: DAILY FOUNDER MOTIVATION & EVENING KICKOFF ENGINE         -->
+      <!-- =================================================================== -->
+      <section id="tab-motivation" class="tab-panel hidden space-y-5">
+        <div class="glass-panel rounded-2xl p-4 sm:p-5 border-amber-500/25">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400">$0 Founder Mindset &amp; Evening Kickoff</span>
+              <h2 class="text-base sm:text-lg font-bold text-white mt-0.5">Daily Founder Motivation Hub</h2>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                Use the <strong>1-Click Email Dispatch</strong> below or install our free 10-line <strong>Google Apps Script</strong> for hands-free daily emails before your 8:00 PM sprint.
+              </p>
+            </div>
+            <button type="button" id="open-gas-modal-btn" class="px-3.5 py-2 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 border border-amber-500/35 text-xs font-semibold text-amber-300 shrink-0 transition">
+              Free 7:55 PM Auto-Email Script
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+          <div class="lg:col-span-4 glass-panel rounded-2xl p-4 sm:p-5 space-y-4 h-fit">
+            <div>
+              <h3 class="text-sm font-bold text-white">Founder Email &amp; Delivery</h3>
+              <p class="text-xs text-slate-400 mt-1">Save your personal email for 1-click daily motivation &amp; sprint kickoff dispatches.</p>
+            </div>
+
+            <form id="founder-email-form" class="space-y-2.5">
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Your Founder Email Address</label>
+                <input type="email" id="founder-email-input" placeholder="founder@example.com" class="w-full bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500" />
+              </div>
+              <button type="submit" class="w-full py-2 px-3 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 text-xs font-semibold text-cyan-300 transition">
+                Save Founder Email
+              </button>
+            </form>
+
+            <div class="p-3.5 rounded-xl bg-obsidian-950/80 border border-slate-800 space-y-2 text-[11px] text-slate-400 leading-relaxed">
+              <div class="font-semibold text-slate-200">How Hands-Free 7:55 PM Emails Work ($0):</div>
+              <p>1. Tap <strong class="text-amber-300">Free 7:55 PM Auto-Email Script</strong>.</p>
+              <p>2. Paste into any Google Sheet under <em>Extensions &rarr; Apps Script</em>.</p>
+              <p>3. Add a daily trigger (7pm–8pm) so Google emails your Night-Owl boost automatically.</p>
+            </div>
+          </div>
+
+          <div class="lg:col-span-8 glass-panel rounded-2xl p-4 sm:p-6 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span id="motivation-date-pill" class="px-2.5 py-1 rounded-full text-[11px] font-mono bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Today's Executive Boost</span>
+              <button type="button" id="new-motivation-btn" class="px-3 py-1.5 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 text-xs font-semibold text-white transition">
+                Generate New Boost
+              </button>
+            </div>
+
+            <div class="rounded-2xl bg-gradient-to-br from-obsidian-900 to-obsidian-950 border border-slate-800 p-4 sm:p-5 space-y-3">
+              <blockquote id="motivation-quote-text" class="text-sm sm:text-base font-semibold text-white leading-relaxed"></blockquote>
+              <p id="motivation-quote-author" class="text-xs font-mono text-amber-400"></p>
+              <div class="pt-3 border-t border-slate-800/80 space-y-2">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400">Tonight's 8:00 PM Night-Owl Focus Prompt</span>
+                <p id="motivation-sprint-prompt" class="text-xs sm:text-sm text-slate-300 leading-relaxed"></p>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-2.5">
+              <a id="send-motivation-mailto" href="mailto:" class="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs text-center flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-500/15">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                <span>Send Motivation to My Email</span>
+              </a>
+              <button type="button" id="copy-motivation-btn" class="py-3 px-4 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 text-xs font-semibold text-emerald-300 transition">
+                Copy Motivation
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- MODULE 7: CROSS-DEVICE JSON BACKUP, RESTORE, CSV & VAULT SECURITY  -->
+      <!-- =================================================================== -->
+      <section id="tab-backup" class="tab-panel hidden space-y-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="glass-panel rounded-2xl p-4 sm:p-5 space-y-4">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-400">Cross-Device Transfer</span>
+              <h2 class="text-base font-bold text-white mt-0.5">Backup, Restore &amp; Google Sheets CSV</h2>
+              <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                Export your decrypted workspace as a JSON backup to move between your PC and phone, or export a CSV for Google Sheets.
+              </p>
+            </div>
+
+            <div class="space-y-2.5">
+              <button type="button" id="export-json-btn" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-obsidian-950 font-bold text-xs flex items-center justify-center gap-2 transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                <span>Export Full Backup (.json)</span>
+              </button>
+
+              <label class="w-full py-3 px-4 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 text-xs font-semibold text-white flex items-center justify-center gap-2 cursor-pointer transition">
+                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+                <span>Import Backup (.json) from Another Device</span>
+                <input type="file" id="import-json-input" accept=".json,application/json" class="hidden" />
+              </label>
+
+              <button type="button" id="export-csv-btn" class="w-full py-3 px-4 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 text-xs font-semibold text-emerald-300 flex items-center justify-center gap-2 transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                <span>Export Projects, Financials &amp; Leads (.csv for Google Sheets)</span>
+              </button>
+            </div>
+
+            <div class="p-3 rounded-xl bg-obsidian-950/70 border border-slate-800 text-[11px] text-slate-400 leading-relaxed">
+              <strong class="text-slate-200">Install on Home Screen:</strong> Host this file over <span class="font-mono text-cyan-300">https://</span> (Netlify Drop / GitHub Pages / Vercel) and tap <em>"Add to Home Screen"</em> on mobile or <em>"Install"</em> on desktop.
+            </div>
+          </div>
+
+          <div class="glass-panel rounded-2xl p-4 sm:p-5 space-y-4">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">Zero-Knowledge Vault Security</span>
+              <h2 class="text-base font-bold text-white mt-0.5">Change Secret PIN / Passphrase &amp; Recovery Key</h2>
+              <p class="text-xs text-slate-400 mt-1">Re-encrypts your vault with a new PIN/passphrase or rotates your Master Recovery Key.</p>
+            </div>
+
+            <form id="change-pin-form" class="space-y-2.5 p-3.5 rounded-xl bg-obsidian-900/80 border border-slate-800">
+              <h3 class="text-xs font-bold text-white">Change Secret PIN / Passphrase (4+ Chars)</h3>
+              <div class="flex gap-2">
+                <input type="password" id="new-pin-input" minlength="4" placeholder="New PIN or passphrase" required class="flex-1 bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-emerald-500" />
+                <button type="submit" class="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-obsidian-950 font-bold text-xs">
+                  Re-Encrypt
+                </button>
+              </div>
+              <button type="button" id="rotate-recovery-key-btn" class="w-full py-2 px-3 rounded-xl bg-obsidian-800 hover:bg-obsidian-700 border border-amber-500/30 text-[11px] font-semibold text-amber-300 transition">
+                Generate Fresh Master Recovery Key
+              </button>
+            </form>
+
+            <form id="api-key-form" class="space-y-2.5 p-3.5 rounded-xl bg-obsidian-900/80 border border-slate-800">
+              <h3 class="text-xs font-bold text-white">Optional Custom Gemini API Key</h3>
+              <p class="text-[11px] text-slate-400">Stored inside your encrypted vault. Leave blank to use built-in advice.</p>
+              <div class="flex gap-2">
+                <input type="password" id="custom-api-key-input" placeholder="Paste Gemini API key (optional)" class="flex-1 bg-obsidian-800 border border-slate-700 rounded-xl px-3 py-2 text-xs font-mono text-white focus:outline-none focus:border-cyan-500" />
+                <button type="submit" class="px-4 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-obsidian-950 font-bold text-xs">
+                  Save
+                </button>
+              </div>
+            </form>
+
+            <div class="pt-2 flex items-center justify-between">
+              <span class="text-xs text-slate-400">Need a clean slate?</span>
+              <button type="button" id="reset-all-btn" class="px-3 py-1.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 border border-rose-500/30 text-xs font-semibold text-rose-300">
+                Wipe Encrypted Vault
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Google Apps Script 7:55 PM Auto-Email Modal -->
+    <div id="gas-modal" class="hidden fixed inset-0 z-50 bg-obsidian-950/90 backdrop-blur-md flex items-center justify-center p-4">
+      <div class="w-full max-w-lg glass-panel rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xl border border-amber-500/30">
+        <div class="flex items-start justify-between gap-3">
+          <div>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400">$0 Hands-Free Automation</span>
+            <h3 class="text-base font-bold text-white mt-0.5">Google Apps Script: 7:55 PM Auto-Email</h3>
+          </div>
+          <button type="button" id="close-gas-modal-btn" class="px-2.5 py-1 rounded-lg bg-obsidian-800 text-xs text-slate-400 hover:text-white">✕</button>
+        </div>
+        <p class="text-xs text-slate-300 leading-relaxed">
+          Open any Google Sheet &rarr; click <strong>Extensions &rarr; Apps Script</strong> &rarr; paste this snippet, save, and add a daily <strong>Time-driven trigger (7pm–8pm)</strong> on <code class="text-emerald-300">sendNightOwlBoost</code>:
+        </p>
+        <pre id="gas-code-block" class="bg-obsidian-950 border border-slate-800 rounded-xl p-3 text-[11px] font-mono text-emerald-300 overflow-x-auto leading-relaxed"></pre>
+        <div class="flex items-center justify-end gap-2">
+          <button type="button" id="copy-gas-btn" class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-obsidian-950 font-bold text-xs">
+            Copy Apps Script
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar (7 Tabs) -->
+    <nav class="md:hidden fixed bottom-0 inset-x-0 z-30 bg-obsidian-900/95 backdrop-blur-lg border-t border-slate-800 grid grid-cols-7">
+      <button type="button" data-tab="meeting" class="mobile-tab-btn py-2 flex flex-col items-center justify-center gap-0.5 text-emerald-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+        <span class="text-[9px] font-semibold">Chat</span>
+      </button>
+      <button type="button" data-tab="projects" class="mobile-tab-btn py-2 flex flex-col items-center justify-center gap-0.5 text-slate-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+        <span class="text-[9px] font-medium">Projects</span>
+      </button>
+      <button type="button" data-tab="cfo" class="mobile-tab-btn py-2 flex flex-col items-center justify-center gap-0.5 text-slate-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        <span class="text-[9px] font-medium">CFO</span>
+      </button>
+      <button type="button" data-tab="receptionist" class="mobile-tab-btn py-2 flex flex-col items-center justify-center gap-0.5 text-slate-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+        <span class="text-[9px] font-medium">Calls</span>
+      </button>
+      <button type="button" data-tab="promo" class="mobile-tab-btn py-2 flex flex-col items-center justify-center gap-0.5 text-slate-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+        <span class="text-[9px] font-medium">Promo</span>
+      </button>
+      <button type="button" data-tab="motivation" class="mobile-tab-btn py-2 flex flex-col items-center justify-center gap-0.5 text-slate-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        <span class="text-[9px] font-medium">Boost</span>
+      </button>
+      <button type="button" data-tab="backup" class="mobile-tab-btn py-2 flex flex-col items-center justify-center gap-0.5 text-slate-400">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" /></svg>
+        <span class="text-[9px] font-medium">Sync</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- APPLICATION LOGIC, WEB CRYPTO VAULT & LOCALSTORAGE ENGINE             -->
+  <!-- ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* -------------------------------------------------------------------
+         1. DYNAMIC INLINE PWA WEB APP MANIFEST
+      ------------------------------------------------------------------- */
+      try {
+        const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#10b981"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs><rect width="512" height="512" rx="112" fill="#090d16"/><rect x="24" y="24" width="464" height="464" rx="96" fill="none" stroke="url(#g)" stroke-width="16"/><path d="M165 180h182M165 256h130M165 332h182" stroke="url(#g)" stroke-width="34" stroke-linecap="round"/><circle cx="356" cy="256" r="22" fill="#10b981"/></svg>`;
+        const iconDataUrl = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(iconSvg);
+        const manifest = {
+          name: 'ChangeAI Assistant — Encrypted Executive Command Center',
+          short_name: 'ChangeAI',
+          description: 'Encrypted private executive business command center for ChangeAI.',
+          start_url: './',
+          display: 'standalone',
+          background_color: '#060911',
+          theme_color: '#090d16',
+          orientation: 'portrait-primary',
+          icons: [
+            { src: iconDataUrl, sizes: '192x192', type: 'image/svg+xml', purpose: 'any maskable' },
+            { src: iconDataUrl, sizes: '512x512', type: 'image/svg+xml', purpose: 'any maskable' }
+          ]
+        };
+        const manifestBlob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
+        const manifestUrl = URL.createObjectURL(manifestBlob);
+        const manifestLink = document.getElementById('pwa-manifest-link');
+        if (manifestLink) manifestLink.setAttribute('href', manifestUrl);
+      } catch (e) {
+        // Ignore if manifest creation is blocked in sandboxed preview
+      }
+
+      /* -------------------------------------------------------------------
+         2. ZERO-KNOWLEDGE PBKDF2 + AES-256-GCM VAULT ENCRYPTION ENGINE
+            - Secret passphrase is NEVER stored in code or storage.
+            - Vault data is encrypted with a random 256-bit Data Encryption Key (DEK).
+            - DEK is wrapped (encrypted) separately with:
+                (a) PBKDF2 key derived from the user's secret passphrase, AND
+                (b) PBKDF2 key derived from a one-time Master Recovery Key.
+      ------------------------------------------------------------------- */
+      const VAULT_STORAGE_KEY = 'changeai_assistant_encrypted_vault_v1';
+      const LEGACY_PLAIN_KEY = 'changeai_assistant_executive_v2';
+      const PBKDF2_ITERATIONS = 150000;
+
+      const textEncoder = new TextEncoder();
+      const textDecoder = new TextDecoder();
+
+      function bytesToBase64(bytes) {
+        let bin = '';
+        const arr = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
+        for (let i = 0; i < arr.length; i++) bin += String.fromCharCode(arr[i]);
+        return btoa(bin);
+      }
+
+      function base64ToBytes(b64) {
+        const bin = atob(b64);
+        const arr = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+        return arr;
+      }
+
+      function randomBytes(len) {
+        const arr = new Uint8Array(len);
+        crypto.getRandomValues(arr);
+        return arr;
+      }
+
+      function normalizeRecoveryKey(raw) {
+        return String(raw || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+      }
+
+      function generateFormattedRecoveryKey() {
+        const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+        const bytes = randomBytes(12);
+        let chars = '';
+        for (let i = 0; i < 12; i++) {
+          chars += alphabet[bytes[i] % alphabet.length];
+        }
+        return `CAI-${chars.slice(0, 4)}-${chars.slice(4, 8)}-${chars.slice(8, 12)}`;
+      }
+
+      async function deriveAesKeyFromSecret(secret, saltBytes) {
+        const baseKey = await crypto.subtle.importKey(
+          'raw',
+          textEncoder.encode(secret),
+          { name: 'PBKDF2' },
+          false,
+          ['deriveKey']
+        );
+        return crypto.subtle.deriveKey(
+          {
+            name: 'PBKDF2',
+            salt: saltBytes,
+            iterations: PBKDF2_ITERATIONS,
+            hash: 'SHA-256'
+          },
+          baseKey,
+          { name: 'AES-GCM', length: 256 },
+          false,
+          ['encrypt', 'decrypt']
+        );
+      }
+
+      async function generateRawDek() {
+        return crypto.subtle.generateKey(
+          { name: 'AES-GCM', length: 256 },
+          true,
+          ['encrypt', 'decrypt']
+        );
+      }
+
+      async function exportDekBytes(dekCryptoKey) {
+        const raw = await crypto.subtle.exportKey('raw', dekCryptoKey);
+        return new Uint8Array(raw);
+      }
+
+      async function importDekBytes(rawBytes) {
+        return crypto.subtle.importKey(
+          'raw',
+          rawBytes,
+          { name: 'AES-GCM', length: 256 },
+          true,
+          ['encrypt', 'decrypt']
+        );
+      }
+
+      async function encryptBytesWithAesKey(aesKey, plainBytes) {
+        const iv = randomBytes(12);
+        const cipherBuf = await crypto.subtle.encrypt(
+          { name: 'AES-GCM', iv },
+          aesKey,
+          plainBytes
+        );
+        return {
+          iv: bytesToBase64(iv),
+          ct: bytesToBase64(new Uint8Array(cipherBuf))
+        };
+      }
+
+      async function decryptBytesWithAesKey(aesKey, payload) {
+        const iv = base64ToBytes(payload.iv);
+        const ct = base64ToBytes(payload.ct);
+        const plainBuf = await crypto.subtle.decrypt(
+          { name: 'AES-GCM', iv },
+          aesKey,
+          ct
+        );
+        return new Uint8Array(plainBuf);
+      }
+
+      async function wrapDekWithSecret(dekBytes, secret) {
+        const salt = randomBytes(16);
+        const wrappingKey = await deriveAesKeyFromSecret(secret, salt);
+        const enc = await encryptBytesWithAesKey(wrappingKey, dekBytes);
+        return {
+          salt: bytesToBase64(salt),
+          iv: enc.iv,
+          ct: enc.ct
+        };
+      }
+
+      async function unwrapDekWithSecret(wrappedObj, secret) {
+        const salt = base64ToBytes(wrappedObj.salt);
+        const wrappingKey = await deriveAesKeyFromSecret(secret, salt);
+        return decryptBytesWithAesKey(wrappingKey, { iv: wrappedObj.iv, ct: wrappedObj.ct });
+      }
+
+      function readVaultEnvelope() {
+        try {
+          const raw = localStorage.getItem(VAULT_STORAGE_KEY);
+          if (!raw) return null;
+          return JSON.parse(raw);
+        } catch (err) {
+          return null;
+        }
+      }
+
+      function writeVaultEnvelope(envelope) {
+        localStorage.setItem(VAULT_STORAGE_KEY, JSON.stringify(envelope));
+      }
+
+      /* -------------------------------------------------------------------
+         3. DEFAULT WORKSPACE DATA (ONLY KEPT IN MEMORY WHEN UNLOCKED)
+      ------------------------------------------------------------------- */
+      const DEFAULT_PROJECTS = [
+        {
+          id: 'proj-study-platform',
+          name: 'Study Platform ($0/$1/$3/$5)',
+          category: 'EdTech',
+          pricing: 'Free + $1 / $3 / $5 Tiers',
+          status: 'Building',
+          launchDate: '2026-12-15',
+          goal: 'Gamified multi-tier study hub with offline vault, Lofi player, 6-user voice/video study rooms, and 10,000-pt Tutor unlock.'
+        },
+        {
+          id: 'proj-chemcoach',
+          name: 'ChemCoach AI (Chemistry Tutor)',
+          category: 'AI Micro-SaaS',
+          pricing: '3 Free Prompts + $1 Cram Pass',
+          status: 'Live',
+          launchDate: '2026-11-22',
+          goal: 'Socratic O-Level / ZIMSEC / IGCSE Chemistry study chatbot guiding struggling students step-by-step.'
+        },
+        {
+          id: 'proj-tutor-market',
+          name: '10k-Pt Tutor Marketplace',
+          category: 'Marketplace',
+          pricing: '10,000 Points Unlock + Class Rev',
+          status: 'Planning',
+          launchDate: '2027-01-10',
+          goal: 'Empower top students who earn 10,000 points to create and own independent study classes.'
+        }
+      ];
+
+      function createDefaultWorkspace() {
+        return {
+          customApiKey: '',
+          founderEmail: '',
+          motivationIndex: 0,
+          activeTab: 'meeting',
+          sprintSecondsLeft: 9000,
+          projects: JSON.parse(JSON.stringify(DEFAULT_PROJECTS)),
+          messages: [
+            {
+              role: 'assistant',
+              timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+              text: "Welcome to our 1-on-1 executive strategy session. I'm your ChangeAI Assistant.\n\nYour workspace is now encrypted locally in browser storage with PBKDF2 + AES-256-GCM.\n\nHere is our simple $0-budget focus:\n1. Validate ChemCoach AI with classmates and test $1 Exam Cram Passes.\n2. Use YouTube Shorts + WhatsApp Status hooks to attract students at $0 ad spend.\n3. Execute in focused 15-minute blocks during your 8:00 PM – 10:30 PM Night-Owl window.\n\nWhat would you like to work on first?"
+            }
+          ],
+          cfoEntries: [
+            {
+              id: 'seed-1',
+              date: new Date().toISOString().slice(0, 10),
+              venture: 'ChemCoach AI (Chemistry Tutor)',
+              note: 'Initial $1 Exam Cram Pass test batch',
+              revenue: 15.00,
+              cogs: 0.00,
+              marketing: 0.00,
+              customers: 15
+            },
+            {
+              id: 'seed-2',
+              date: new Date().toISOString().slice(0, 10),
+              venture: 'Study Platform ($0/$1/$3/$5)',
+              note: 'Early $3 Main Monthly Pass signups',
+              revenue: 24.00,
+              cogs: 0.00,
+              marketing: 0.00,
+              customers: 8
+            }
+          ],
+          leads: [
+            {
+              id: 'lead-1',
+              name: 'Kudzai Ndlovu',
+              contact: '+263 77 402 8819',
+              venture: 'ChemCoach AI (Chemistry Tutor)',
+              outcome: 'Callback Scheduled',
+              callbackTime: '8:15 PM Tonight',
+              notes: 'Called during school hours; interested in $1 Exam Cram Pass for O-Level Chemistry.',
+              createdAt: new Date().toLocaleDateString()
+            }
+          ],
+          sprintTasks: [
+            { id: 't-1', text: 'Review incoming leads & make 8:15 PM callback', done: false },
+            { id: 't-2', text: 'Record & post 1 YouTube Short for ChemCoach AI', done: false },
+            { id: 't-3', text: 'Log today’s $1 / $3 / $5 tier signups in CFO tracker', done: false },
+            { id: 't-4', text: 'Export JSON backup file before wrapping at 10:30 PM', done: false }
+          ]
+        };
+      }
+
+      // Active decrypted session state (cleared on Lock)
+      let state = createDefaultWorkspace();
+      let activeDekKey = null;
+      let activeDekBytes = null;
+      let vaultEnvelope = readVaultEnvelope();
+
+      function normalizeWorkspace(rawObj) {
+        const base = createDefaultWorkspace();
+        const merged = Object.assign({}, base, rawObj || {});
+        if (!Array.isArray(merged.projects) || merged.projects.length === 0) {
+          merged.projects = JSON.parse(JSON.stringify(DEFAULT_PROJECTS));
+        }
+        return merged;
+      }
+
+      async function persistEncryptedWorkspace() {
+        if (!activeDekKey || !vaultEnvelope) return;
+        try {
+          const plainBytes = textEncoder.encode(JSON.stringify(state));
+          const cipherData = await encryptBytesWithAesKey(activeDekKey, plainBytes);
+          vaultEnvelope.data = cipherData;
+          vaultEnvelope.updatedAt = new Date().toISOString();
+          writeVaultEnvelope(vaultEnvelope);
+        } catch (err) {
+          showToast('Encryption save error: Could not write encrypted vault.', 'error');
+        }
+      }
+
+      function saveState() {
+        persistEncryptedWorkspace();
+      }
+
+      /* -------------------------------------------------------------------
+         4. TOAST & CLIPBOARD HELPERS
+      ------------------------------------------------------------------- */
+      function showToast(message, type = 'success') {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+        const el = document.createElement('div');
+        const colors = type === 'error'
+          ? 'bg-rose-950/95 border-rose-500/50 text-rose-200'
+          : type === 'info'
+          ? 'bg-cyan-950/95 border-cyan-500/50 text-cyan-200'
+          : 'bg-emerald-950/95 border-emerald-500/50 text-emerald-200';
+        el.className = `pointer-events-auto px-4 py-3 rounded-2xl border shadow-xl text-xs font-medium backdrop-blur-md transition-all duration-300 ${colors}`;
+        el.textContent = message;
+        container.appendChild(el);
+        setTimeout(() => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(8px)';
+          setTimeout(() => el.remove(), 300);
+        }, 3200);
+      }
+
+      function escapeHtml(str) {
+        const div = document.createElement('div');
+        div.textContent = str == null ? '' : String(str);
+        return div.innerHTML;
+      }
+
+      function copyTextToClipboard(text, successMsg) {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        temp.style.position = 'fixed';
+        temp.style.opacity = '0';
+        document.body.appendChild(temp);
+        temp.select();
+        try {
+          document.execCommand('copy');
+          showToast(successMsg);
+        } catch (err) {
+          showToast('Unable to copy automatically—please select and copy manually.', 'error');
+        }
+        document.body.removeChild(temp);
+      }
+
+      /* -------------------------------------------------------------------
+         5. LOCK SCREEN, VAULT SETUP & RECOVERY KEY HANDLERS
+      ------------------------------------------------------------------- */
+      const lockScreen = document.getElementById('lock-screen');
+      const appShell = document.getElementById('app-shell');
+      const lockTitle = document.getElementById('lock-title');
+      const lockSubtitle = document.getElementById('lock-subtitle');
+      const lockError = document.getElementById('lock-error');
+
+      const vaultModeTabs = document.getElementById('vault-mode-tabs');
+      const modeUnlockTab = document.getElementById('mode-unlock-tab');
+      const modeRecoverTab = document.getElementById('mode-recover-tab');
+
+      const viewUnlock = document.getElementById('view-unlock');
+      const viewSetup = document.getElementById('view-setup');
+      const viewRecoveryBadge = document.getElementById('view-recovery-badge');
+      const viewRecover = document.getElementById('view-recover');
+
+      const unlockSecretInput = document.getElementById('unlock-secret-input');
+
+      function setLockView(mode) {
+        lockError.textContent = '';
+        viewUnlock.classList.add('hidden');
+        viewSetup.classList.add('hidden');
+        viewRecoveryBadge.classList.add('hidden');
+        viewRecover.classList.add('hidden');
+
+        if (mode === 'setup') {
+          vaultModeTabs.classList.add('hidden');
+          vaultModeTabs.classList.remove('grid');
+          lockTitle.textContent = 'Create Encrypted Vault';
+          lockSubtitle.textContent = 'Set a secret PIN or passphrase. Nothing is stored in code or plain text.';
+          viewSetup.classList.remove('hidden');
+          document.getElementById('setup-secret-input').focus();
+        } else if (mode === 'recovery-badge') {
+          vaultModeTabs.classList.add('hidden');
+          vaultModeTabs.classList.remove('grid');
+          lockTitle.textContent = 'Vault Encrypted';
+          lockSubtitle.textContent = 'Keep your Master Recovery Key safe before entering your dashboard.';
+          viewRecoveryBadge.classList.remove('hidden');
+        } else if (mode === 'recover') {
+          vaultModeTabs.classList.remove('hidden');
+          vaultModeTabs.classList.add('grid');
+          modeRecoverTab.className = 'py-1.5 px-2 rounded-lg text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30 transition';
+          modeUnlockTab.className = 'py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
+          lockTitle.textContent = 'Recover Vault Access';
+          lockSubtitle.textContent = 'Enter your Master Recovery Key to set a new PIN or passphrase.';
+          viewRecover.classList.remove('hidden');
+          document.getElementById('recover-key-input').focus();
+        } else {
+          vaultModeTabs.classList.remove('hidden');
+          vaultModeTabs.classList.add('grid');
+          modeUnlockTab.className = 'py-1.5 px-2 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition';
+          modeRecoverTab.className = 'py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white transition';
+          lockTitle.textContent = 'ChangeAI Assistant';
+          lockSubtitle.textContent = 'Enter your secret PIN or passphrase to decrypt your vault.';
+          viewUnlock.classList.remove('hidden');
+          unlockSecretInput.value = '';
+          unlockSecretInput.focus();
+        }
+      }
+
+      function renderLockScreen() {
+        vaultEnvelope = readVaultEnvelope();
+        if (!vaultEnvelope || !vaultEnvelope.data) {
+          setLockView('setup');
+        } else {
+          setLockView('unlock');
+        }
+      }
+
+      function enterUnlockedApp(decryptedWorkspace, dekKey, dekBytes) {
+        state = normalizeWorkspace(decryptedWorkspace);
+        activeDekKey = dekKey;
+        activeDekBytes = dekBytes;
+        unlockSecretInput.value = '';
+        lockError.textContent = '';
+        lockScreen.classList.add('hidden');
+        appShell.classList.remove('hidden');
+        renderAll();
+      }
+
+      function lockAppSession() {
+        // Wipe decrypted workspace and cryptographic key from active memory
+        state = createDefaultWorkspace();
+        activeDekKey = null;
+        if (activeDekBytes) {
+          activeDekBytes.fill(0);
+          activeDekBytes = null;
+        }
+        clearInterval(sprintInterval);
+        sprintRunning = false;
+        appShell.classList.add('hidden');
+        lockScreen.classList.remove('hidden');
+        renderLockScreen();
+      }
+
+      modeUnlockTab.addEventListener('click', () => setLockView('unlock'));
+      modeRecoverTab.addEventListener('click', () => setLockView('recover'));
+
+      // Keypad helpers for Unlock view
+      document.querySelectorAll('[data-unlock-digit]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          lockError.textContent = '';
+          unlockSecretInput.value += btn.getAttribute('data-unlock-digit');
+        });
+      });
+
+      document.getElementById('unlock-clear-btn').addEventListener('click', () => {
+        unlockSecretInput.value = '';
+        lockError.textContent = '';
+      });
+
+      document.getElementById('unlock-back-btn').addEventListener('click', () => {
+        unlockSecretInput.value = unlockSecretInput.value.slice(0, -1);
+      });
+
+      document.getElementById('unlock-toggle-vis-btn').addEventListener('click', (e) => {
+        const isPw = unlockSecretInput.type === 'password';
+        unlockSecretInput.type = isPw ? 'text' : 'password';
+        e.target.textContent = isPw ? 'Hide' : 'Show';
+      });
+
+      async function handleUnlockAttempt() {
+        const secret = unlockSecretInput.value;
+        if (!secret) {
+          lockError.textContent = 'Enter your secret PIN or passphrase first.';
+          return;
+        }
+        if (!window.crypto || !window.crypto.subtle) {
+          lockError.textContent = 'Web Crypto requires a secure context (HTTPS or localhost).';
+          return;
+        }
+        if (!vaultEnvelope || !vaultEnvelope.secretWrap || !vaultEnvelope.data) {
+          lockError.textContent = 'No encrypted vault found.';
+          return;
+        }
+
+        try {
+          const dekRaw = await unwrapDekWithSecret(vaultEnvelope.secretWrap, secret);
+          const dekKey = await importDekBytes(dekRaw);
+          const plainBytes = await decryptBytesWithAesKey(dekKey, vaultEnvelope.data);
+          const parsed = JSON.parse(textDecoder.decode(plainBytes));
+          enterUnlockedApp(parsed, dekKey, dekRaw);
+          showToast('Vault decrypted locally.');
+        } catch (err) {
+          lockError.textContent = 'Incorrect PIN or passphrase.';
+          unlockSecretInput.classList.add('animate-shake');
+          setTimeout(() => unlockSecretInput.classList.remove('animate-shake'), 380);
+        }
+      }
+
+      document.getElementById('unlock-submit-btn').addEventListener('click', handleUnlockAttempt);
+      unlockSecretInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          handleUnlockAttempt();
+        }
+      });
+
+      // First-time Vault Setup
+      let pendingSetupSession = null;
+
+      document.getElementById('view-setup').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        lockError.textContent = '';
+        const secret = document.getElementById('setup-secret-input').value;
+        const confirm = document.getElementById('setup-confirm-input').value;
+
+        if (secret.length < 4) {
+          lockError.textContent = 'Use at least 4 characters (8+ recommended).';
+          return;
+        }
+        if (secret !== confirm) {
+          lockError.textContent = 'Secret entries do not match.';
+          return;
+        }
+        if (!window.crypto || !window.crypto.subtle) {
+          lockError.textContent = 'Web Crypto requires HTTPS or localhost to encrypt your vault.';
+          return;
+        }
+
+        try {
+          const dekKey = await generateRawDek();
+          const dekRaw = await exportDekBytes(dekKey);
+          const recoveryKeyFormatted = generateFormattedRecoveryKey();
+          const normalizedRecovery = normalizeRecoveryKey(recoveryKeyFormatted);
+
+          const initialWorkspace = createDefaultWorkspace();
+          const cipherData = await encryptBytesWithAesKey(
+            dekKey,
+            textEncoder.encode(JSON.stringify(initialWorkspace))
+          );
+          const secretWrap = await wrapDekWithSecret(dekRaw, secret);
+          const recoveryWrap = await wrapDekWithSecret(dekRaw, normalizedRecovery);
+
+          const envelope = {
+            v: 1,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            secretWrap,
+            recoveryWrap,
+            data: cipherData
+          };
+          writeVaultEnvelope(envelope);
+          vaultEnvelope = envelope;
+          localStorage.removeItem(LEGACY_PLAIN_KEY);
+
+          document.getElementById('setup-secret-input').value = '';
+          document.getElementById('setup-confirm-input').value = '';
+          document.getElementById('generated-recovery-key-display').textContent = recoveryKeyFormatted;
+
+          pendingSetupSession = { workspace: initialWorkspace, dekKey, dekRaw };
+          setLockView('recovery-badge');
+        } catch (err) {
+          lockError.textContent = 'Unable to initialize encryption in this browser context.';
+        }
+      });
+
+      document.getElementById('copy-recovery-key-btn').addEventListener('click', () => {
+        const keyText = document.getElementById('generated-recovery-key-display').textContent;
+        copyTextToClipboard(keyText, 'Master Recovery Key copied! Store it safely offline.');
+      });
+
+      document.getElementById('enter-vault-after-key-btn').addEventListener('click', () => {
+        if (pendingSetupSession) {
+          const { workspace, dekKey, dekRaw } = pendingSetupSession;
+          pendingSetupSession = null;
+          enterUnlockedApp(workspace, dekKey, dekRaw);
+          showToast('Encrypted vault ready!');
+        } else {
+          renderLockScreen();
+        }
+      });
+
+      // Reset Forgotten Secret via Master Recovery Key
+      document.getElementById('view-recover').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        lockError.textContent = '';
+
+        const enteredKey = normalizeRecoveryKey(document.getElementById('recover-key-input').value);
+        const newSecret = document.getElementById('recover-new-secret-input').value;
+        const confirmSecret = document.getElementById('recover-confirm-secret-input').value;
+
+        if (!enteredKey) {
+          lockError.textContent = 'Enter your Master Recovery Key.';
+          return;
+        }
+        if (newSecret.length < 4) {
+          lockError.textContent = 'New PIN or passphrase must be at least 4 characters.';
+          return;
+        }
+        if (newSecret !== confirmSecret) {
+          lockError.textContent = 'New secret entries do not match.';
+          return;
+        }
+        if (!vaultEnvelope || !vaultEnvelope.recoveryWrap || !vaultEnvelope.data) {
+          lockError.textContent = 'No recovery record found on this vault.';
+          return;
+        }
+
+        try {
+          const dekRaw = await unwrapDekWithSecret(vaultEnvelope.recoveryWrap, enteredKey);
+          const dekKey = await importDekBytes(dekRaw);
+          const plainBytes = await decryptBytesWithAesKey(dekKey, vaultEnvelope.data);
+          const parsedWorkspace = JSON.parse(textDecoder.decode(plainBytes));
+
+          // Re-wrap the existing DEK under the new secret so all data stays intact
+          vaultEnvelope.secretWrap = await wrapDekWithSecret(dekRaw, newSecret);
+          vaultEnvelope.updatedAt = new Date().toISOString();
+          writeVaultEnvelope(vaultEnvelope);
+
+          document.getElementById('recover-key-input').value = '';
+          document.getElementById('recover-new-secret-input').value = '';
+          document.getElementById('recover-confirm-secret-input').value = '';
+
+          enterUnlockedApp(parsedWorkspace, dekKey, dekRaw);
+          showToast('Secret updated and vault re-encrypted without data loss!');
+        } catch (err) {
+          lockError.textContent = 'Invalid Master Recovery Key.';
+        }
+      });
+
+      document.getElementById('lock-app-btn').addEventListener('click', () => {
+        lockAppSession();
+        showToast('Vault locked and session key cleared.', 'info');
+      });
+
+      /* -------------------------------------------------------------------
+         6. NIGHT-OWL SPRINT TIMER (8:00 PM – 10:30 PM = 2H 30M)
+      ------------------------------------------------------------------- */
+      let sprintInterval = null;
+      let sprintRunning = false;
+      const sprintDisplay = document.getElementById('sprint-timer-display');
+      const sprintDot = document.getElementById('sprint-dot');
+
+      function formatSeconds(sec) {
+        const s = Math.max(0, sec);
+        const hrs = Math.floor(s / 3600);
+        const mins = Math.floor((s % 3600) / 60);
+        const rem = s % 60;
+        return [hrs, mins, rem].map((v) => String(v).padStart(2, '0')).join(':');
+      }
+
+      function updateSprintDisplay() {
+        sprintDisplay.textContent = formatSeconds(state.sprintSecondsLeft);
+      }
+
+      document.getElementById('sprint-toggle-btn').addEventListener('click', () => {
+        if (sprintRunning) {
+          clearInterval(sprintInterval);
+          sprintRunning = false;
+          sprintDot.className = 'w-2 h-2 rounded-full bg-amber-400';
+          showToast('Night-Owl sprint paused.', 'info');
+        } else {
+          sprintRunning = true;
+          sprintDot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-ping';
+          showToast('Night-Owl sprint active! Focus on 15-minute execution blocks.');
+          sprintInterval = setInterval(() => {
+            if (state.sprintSecondsLeft > 0) {
+              state.sprintSecondsLeft -= 1;
+              updateSprintDisplay();
+              if (state.sprintSecondsLeft % 15 === 0) saveState();
+            } else {
+              clearInterval(sprintInterval);
+              sprintRunning = false;
+              sprintDot.className = 'w-2 h-2 rounded-full bg-cyan-400';
+              showToast('Night-Owl sprint complete! Great execution tonight.');
+            }
+          }, 1000);
+        }
+      });
+
+      document.getElementById('sprint-reset-btn').addEventListener('click', () => {
+        clearInterval(sprintInterval);
+        sprintRunning = false;
+        sprintDot.className = 'w-2 h-2 rounded-full bg-slate-500';
+        state.sprintSecondsLeft = 9000;
+        saveState();
+        updateSprintDisplay();
+        showToast('Sprint timer reset to 02:30:00 (8:00 PM – 10:30 PM).', 'info');
+      });
+
+      /* -------------------------------------------------------------------
+         7. TAB NAVIGATION (DESKTOP + MOBILE)
+      ------------------------------------------------------------------- */
+      function switchTab(tabName) {
+        state.activeTab = tabName;
+        saveState();
+
+        document.querySelectorAll('.tab-panel').forEach((panel) => {
+          panel.classList.toggle('hidden', panel.id !== `tab-${tabName}`);
+        });
+
+        document.querySelectorAll('.tab-btn').forEach((btn) => {
+          const isMatch = btn.getAttribute('data-tab') === tabName;
+          btn.classList.toggle('border-emerald-400', isMatch);
+          btn.classList.toggle('text-emerald-400', isMatch);
+          btn.classList.toggle('border-transparent', !isMatch);
+          btn.classList.toggle('text-slate-400', !isMatch);
+        });
+
+        document.querySelectorAll('.mobile-tab-btn').forEach((btn) => {
+          const isMatch = btn.getAttribute('data-tab') === tabName;
+          btn.classList.toggle('text-emerald-400', isMatch);
+          btn.classList.toggle('text-slate-400', !isMatch);
+        });
+      }
+
+      document.querySelectorAll('[data-tab]').forEach((btn) => {
+        btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab')));
+      });
+
+      document.querySelectorAll('[data-nav]').forEach((btn) => {
+        btn.addEventListener('click', () => switchTab(btn.getAttribute('data-nav')));
+      });
+
+      /* -------------------------------------------------------------------
+         8. VENTURES & PROJECTS HUB + GLOBAL DROPDOWN SYNC
+      ------------------------------------------------------------------- */
+      function formatCurrency(num) {
+        return '$' + Number(num || 0).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }
+
+      function getProjectFinancials(projectName) {
+        let rev = 0;
+        let cogs = 0;
+        let mktg = 0;
+        let customers = 0;
+        state.cfoEntries.forEach((e) => {
+          if (e.venture === projectName) {
+            rev += Number(e.revenue || 0);
+            cogs += Number(e.cogs || 0);
+            mktg += Number(e.marketing || 0);
+            customers += Number(e.customers || 0);
+          }
+        });
+        const netProfit = rev - cogs - mktg;
+        const margin = rev > 0 ? ((rev - cogs) / rev) * 100 : 0;
+        return { rev, cogs, mktg, customers, netProfit, margin };
+      }
+
+      function syncProjectDropdowns() {
+        const projectNames = state.projects.map((p) => p.name);
+        const countLabel = `${state.projects.length} ${state.projects.length === 1 ? 'Venture' : 'Ventures'}`;
+        document.getElementById('header-project-count').textContent = `${state.projects.length} Active ${state.projects.length === 1 ? 'Project' : 'Projects'}`;
+        document.getElementById('portfolio-total-badge').textContent = countLabel;
+        document.getElementById('meeting-project-count-text').textContent = countLabel.toLowerCase();
+
+        const pillsContainer = document.getElementById('meeting-portfolio-pills');
+        pillsContainer.innerHTML = '';
+        state.projects.forEach((p) => {
+          const dotColor = p.status === 'Live' ? 'bg-emerald-400' : p.status === 'Building' ? 'bg-cyan-400' : p.status === 'Planning' ? 'bg-amber-400' : 'bg-slate-500';
+          const pill = document.createElement('span');
+          pill.className = 'inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-obsidian-900 border border-slate-800 text-[11px] text-slate-300';
+          pill.innerHTML = `<span class="w-1.5 h-1.5 rounded-full ${dotColor}"></span><span>${escapeHtml(p.name)}</span>`;
+          pillsContainer.appendChild(pill);
+        });
+
+        const cfoFilter = document.getElementById('cfo-venture-filter');
+        const prevFilter = cfoFilter.value || 'ALL';
+        cfoFilter.innerHTML = `<option value="ALL">All ChangeAI Ventures (${state.projects.length})</option>`;
+        projectNames.forEach((name) => {
+          const opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = name;
+          cfoFilter.appendChild(opt);
+        });
+        cfoFilter.value = (prevFilter === 'ALL' || projectNames.includes(prevFilter)) ? prevFilter : 'ALL';
+
+        const cfoSelect = document.getElementById('cfo-venture');
+        const prevCfoSelect = cfoSelect.value;
+        cfoSelect.innerHTML = '';
+        projectNames.forEach((name) => {
+          const opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = name;
+          cfoSelect.appendChild(opt);
+        });
+        if (projectNames.includes(prevCfoSelect)) cfoSelect.value = prevCfoSelect;
+
+        const leadSelect = document.getElementById('lead-venture');
+        const prevLeadSelect = leadSelect.value;
+        leadSelect.innerHTML = '';
+        projectNames.forEach((name) => {
+          const opt = document.createElement('option');
+          opt.value = name;
+          opt.textContent = name;
+          leadSelect.appendChild(opt);
+        });
+        const genOpt = document.createElement('option');
+        genOpt.value = 'General ChangeAI Inquiry';
+        genOpt.textContent = 'General ChangeAI Inquiry';
+        leadSelect.appendChild(genOpt);
+        if (projectNames.includes(prevLeadSelect) || prevLeadSelect === 'General ChangeAI Inquiry') {
+          leadSelect.value = prevLeadSelect;
+        }
+
+        const promoSelect = document.getElementById('promo-venture');
+        const prevPromoId = promoSelect.value;
+        promoSelect.innerHTML = '';
+        state.projects.forEach((p) => {
+          const opt = document.createElement('option');
+          opt.value = p.id;
+          opt.textContent = `${p.name} (${p.status})`;
+          promoSelect.appendChild(opt);
+        });
+        if (state.projects.some((p) => p.id === prevPromoId)) {
+          promoSelect.value = prevPromoId;
+        }
+
+        const liveOrBuilding = state.projects.filter((p) => p.status !== 'Paused');
+        const namesList = liveOrBuilding.length > 0
+          ? liveOrBuilding.map((p) => `<strong class="text-white">${escapeHtml(p.name)}</strong>${p.pricing ? ` (${escapeHtml(p.pricing)})` : ''}`).join(', ')
+          : '<strong class="text-white">our ChangeAI Study Tools</strong>';
+
+        document.getElementById('receptionist-script-text').innerHTML = `
+          <p>“Hello! Thank you for reaching <strong class="text-emerald-400">ChangeAI</strong>—where students and learners level up faster with smart AI tools. The Founder is currently in focused executive sessions until <strong class="text-cyan-300">8:00 PM</strong>, so I’m stepping in to make sure you don’t miss out!”</p>
+          <p>“Right now, we’re enrolling learners across ${namesList}. Every student can start on our Free Tier right away—or unlock fast exam help and premium study tools starting from just <strong class="text-emerald-400">$1</strong>!”</p>
+          <p>“Can I grab your name, best WhatsApp/phone number, and which ChangeAI project you’re interested in so the Founder can give you a priority callback tonight right after <strong class="text-cyan-300">8:00 PM</strong>?”</p>
+        `;
+      }
+
+      function resetProjectForm() {
+        document.getElementById('project-form').reset();
+        document.getElementById('project-edit-id').value = '';
+        document.getElementById('project-form-title').textContent = '+ Add New Business / Project';
+        document.getElementById('project-submit-btn').textContent = '+ Save & Sync Project Everywhere';
+        document.getElementById('project-cancel-edit-btn').classList.add('hidden');
+        document.getElementById('project-status').value = 'Building';
+      }
+
+      document.getElementById('project-cancel-edit-btn').addEventListener('click', resetProjectForm);
+
+      function renderProjects() {
+        const grid = document.getElementById('portfolio-cards-grid');
+        grid.innerHTML = '';
+
+        state.projects.forEach((proj) => {
+          const fin = getProjectFinancials(proj.name);
+          const statusStyle =
+            proj.status === 'Live'
+              ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/35'
+              : proj.status === 'Building'
+              ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/35'
+              : proj.status === 'Planning'
+              ? 'bg-amber-500/15 text-amber-300 border-amber-500/35'
+              : 'bg-slate-800 text-slate-400 border-slate-700';
+
+          const card = document.createElement('div');
+          card.className = 'glass-panel rounded-2xl p-4 flex flex-col justify-between space-y-3 hover:border-slate-600/80 transition';
+          card.innerHTML = `
+            <div class="space-y-2">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="px-2 py-0.5 rounded-md bg-obsidian-900 border border-slate-800 text-[10px] font-semibold text-slate-300">${escapeHtml(proj.category || 'Venture')}</span>
+                    ${proj.launchDate ? `<span class="text-[10px] font-mono text-slate-500">Target: ${escapeHtml(proj.launchDate)}</span>` : ''}
+                  </div>
+                  <h4 class="text-sm font-bold text-white mt-1.5">${escapeHtml(proj.name)}</h4>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border shrink-0 ${statusStyle}">${escapeHtml(proj.status)}</span>
+              </div>
+              ${proj.pricing ? `<p class="text-[11px] font-mono text-emerald-400">Pricing: ${escapeHtml(proj.pricing)}</p>` : ''}
+              <p class="text-xs text-slate-400 leading-relaxed">${escapeHtml(proj.goal || 'No key goal added yet.')}</p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-2 p-2.5 rounded-xl bg-obsidian-950/80 border border-slate-800/80 text-center">
+              <div>
+                <span class="block text-[9px] uppercase text-slate-500">Revenue</span>
+                <span class="text-xs font-mono font-bold text-emerald-400">${formatCurrency(fin.rev)}</span>
+              </div>
+              <div>
+                <span class="block text-[9px] uppercase text-slate-500">Net Profit</span>
+                <span class="text-xs font-mono font-bold ${fin.netProfit >= 0 ? 'text-white' : 'text-rose-400'}">${formatCurrency(fin.netProfit)}</span>
+              </div>
+              <div>
+                <span class="block text-[9px] uppercase text-slate-500">Margin</span>
+                <span class="text-xs font-mono font-bold text-cyan-300">${fin.margin.toFixed(0)}%</span>
+              </div>
+            </div>
+
+            <div class="pt-1 flex items-center justify-between gap-2">
+              <div class="flex items-center gap-1.5">
+                <button type="button" data-proj-promo="${proj.id}" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-[11px] font-semibold text-emerald-300 transition">
+                  Promo Script
+                </button>
+                <button type="button" data-proj-cfo="${escapeHtml(proj.name)}" class="px-2.5 py-1 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 border border-slate-700 text-[11px] font-medium text-cyan-300 transition">
+                  + Revenue
+                </button>
+              </div>
+              <div class="flex items-center gap-1">
+                <button type="button" data-proj-edit="${proj.id}" class="px-2 py-1 rounded-lg bg-obsidian-800 hover:bg-obsidian-700 text-[11px] text-slate-300">Edit</button>
+                <button type="button" data-proj-del="${proj.id}" class="px-2 py-1 rounded-lg text-[11px] text-slate-500 hover:text-rose-400" title="Delete project">✕</button>
+              </div>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+
+        grid.querySelectorAll('[data-proj-promo]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-proj-promo');
+            switchTab('promo');
+            document.getElementById('promo-venture').value = id;
+            generatePromo();
+            showToast('Loaded project into YouTube & Social Promo Studio!');
+          });
+        });
+
+        grid.querySelectorAll('[data-proj-cfo]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const name = btn.getAttribute('data-proj-cfo');
+            switchTab('cfo');
+            document.getElementById('cfo-venture').value = name;
+            document.getElementById('cfo-venture-filter').value = name;
+            renderCFO();
+            document.getElementById('cfo-note').focus();
+          });
+        });
+
+        grid.querySelectorAll('[data-proj-edit]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-proj-edit');
+            const proj = state.projects.find((p) => p.id === id);
+            if (!proj) return;
+            document.getElementById('project-edit-id').value = proj.id;
+            document.getElementById('project-name').value = proj.name;
+            document.getElementById('project-category').value = proj.category || 'EdTech';
+            document.getElementById('project-status').value = proj.status || 'Building';
+            document.getElementById('project-pricing').value = proj.pricing || '';
+            document.getElementById('project-launch-date').value = proj.launchDate || '';
+            document.getElementById('project-goal').value = proj.goal || '';
+            document.getElementById('project-form-title').textContent = 'Edit Business / Project';
+            document.getElementById('project-submit-btn').textContent = 'Save Project Changes';
+            document.getElementById('project-cancel-edit-btn').classList.remove('hidden');
+            document.getElementById('project-name').focus();
+          });
+        });
+
+        grid.querySelectorAll('[data-proj-del]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            if (state.projects.length <= 1) {
+              showToast('Keep at least one active business project in ChangeAI.', 'error');
+              return;
+            }
+            const id = btn.getAttribute('data-proj-del');
+            state.projects = state.projects.filter((p) => p.id !== id);
+            saveState();
+            syncProjectDropdowns();
+            renderProjects();
+            renderCFO();
+            showToast('Project removed from portfolio.', 'info');
+          });
+        });
+      }
+
+      document.getElementById('project-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const editId = document.getElementById('project-edit-id').value;
+        const name = document.getElementById('project-name').value.trim();
+        if (!name) return;
+
+        const payload = {
+          name,
+          category: document.getElementById('project-category').value,
+          status: document.getElementById('project-status').value,
+          pricing: document.getElementById('project-pricing').value.trim(),
+          launchDate: document.getElementById('project-launch-date').value,
+          goal: document.getElementById('project-goal').value.trim()
+        };
+
+        if (editId) {
+          const existing = state.projects.find((p) => p.id === editId);
+          if (existing) {
+            const oldName = existing.name;
+            Object.assign(existing, payload);
+            if (oldName !== name) {
+              state.cfoEntries.forEach((c) => { if (c.venture === oldName) c.venture = name; });
+              state.leads.forEach((l) => { if (l.venture === oldName) l.venture = name; });
+            }
+            showToast(`Updated "${name}" across all ChangeAI tools!`);
+          }
+        } else {
+          state.projects.push({ id: 'proj-' + Date.now(), ...payload });
+          showToast(`Added "${name}" & synced across CFO, Leads, Promo, and Chat!`);
+        }
+
+        saveState();
+        resetProjectForm();
+        syncProjectDropdowns();
+        renderProjects();
+        renderCFO();
+        renderLeads();
+        generatePromo();
+      });
+
+      /* -------------------------------------------------------------------
+         9. 1-ON-1 BUSINESS MEETING AI CHAT
+      ------------------------------------------------------------------- */
+      const chatMessagesEl = document.getElementById('chat-messages');
+      const chatForm = document.getElementById('chat-form');
+      const chatInput = document.getElementById('chat-input');
+      const chatSendBtn = document.getElementById('chat-send-btn');
+
+      document.getElementById('meeting-date-badge').textContent = new Date().toLocaleDateString([], {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+      });
+
+      function renderChatMessages() {
+        chatMessagesEl.innerHTML = '';
+        state.messages.forEach((msg) => {
+          const isUser = msg.role === 'user';
+          const wrapper = document.createElement('div');
+          wrapper.className = `flex flex-col ${isUser ? 'items-end' : 'items-start'}`;
+
+          const bubble = document.createElement('div');
+          bubble.className = isUser
+            ? 'max-w-[85%] sm:max-w-[75%] rounded-2xl rounded-br-sm px-4 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 text-white text-xs sm:text-sm leading-relaxed shadow-md'
+            : 'max-w-[90%] sm:max-w-[82%] rounded-2xl rounded-bl-sm px-4 py-3 bg-obsidian-800 border border-slate-700/80 text-slate-100 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap';
+
+          bubble.innerHTML = escapeHtml(msg.text).replace(/\*\*(.*?)\*\*/g, '<strong class="text-emerald-300 font-semibold">$1</strong>');
+
+          const meta = document.createElement('span');
+          meta.className = 'text-[10px] text-slate-500 mt-1 px-1';
+          meta.textContent = `${isUser ? 'Founder' : 'ChangeAI Partner'} • ${msg.timestamp || ''}`;
+
+          wrapper.appendChild(bubble);
+          wrapper.appendChild(meta);
+          chatMessagesEl.appendChild(wrapper);
+        });
+        chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+      }
+
+      function generateFallbackExecutiveReply(promptText) {
+        const p = promptText.toLowerCase();
+        const projectSummaryList = state.projects
+          .map((proj, idx) => `${idx + 1}. **${proj.name}** [${proj.status}] — ${proj.pricing || '$0–$5 tiers'}`)
+          .join('\n');
+
+        if (p.includes('sprint') || p.includes('8:00') || p.includes('night')) {
+          return "Here is a focused 8:00 PM – 10:30 PM Night-Owl sprint tailored to your current ChangeAI ventures:\n\n" +
+            `Active Portfolio:\n${projectSummaryList}\n\n` +
+            "Simple 15-Minute Execution Blocks:\n" +
+            "• 8:00 – 8:20 PM (Leads): Call or WhatsApp any missed leads logged by your receptionist.\n" +
+            "• 8:20 – 9:05 PM (Product): Polish your highest-priority 'Building' or 'Live' project.\n" +
+            "• 9:05 – 9:40 PM (YouTube & Social): Generate 1 YouTube Short script in the Promo tab and record/post it.\n" +
+            "• 9:40 – 10:20 PM (CFO & Backup): Log today's numbers and export a JSON backup.";
+        }
+        if (p.includes('youtube') || p.includes('tiktok') || p.includes('whatsapp') || p.includes('growth') || p.includes('market')) {
+          const topProj = state.projects.find((pr) => pr.status === 'Live') || state.projects[0];
+          return `Here is a simple $0 YouTube + WhatsApp growth loop for **${topProj ? topProj.name : 'ChangeAI'}**:\n\n` +
+            "1. Open Tab 5 (**Promo Studio**) and select **YouTube Shorts**.\n" +
+            "2. Film a 30–45 second screen recording showing how your tool solves a real student pain point.\n" +
+            "3. Post the vertical video to YouTube Shorts, TikTok, and WhatsApp Status with a link to try the free tier first.";
+        }
+        if (p.includes('100') || p.includes('venture') || p.includes('portfolio') || p.includes('priorit')) {
+          return "Looking across your active ChangeAI portfolio in plain English:\n\n" +
+            `${projectSummaryList}\n\n` +
+            "Fastest Path to Your First $100 ($0 Budget):\n" +
+            "1. Lead with your fastest-to-use tool (like **ChemCoach AI**) using a free 3-question hook.\n" +
+            "2. Offer the **$1 Exam Cram Pass** to students with tests this week.\n" +
+            "3. Upsell repeat learners into your **$3 Main Monthly Pass** for offline notes, Lofi beats, and voice study rooms.";
+        }
+        return "Good thinking—let's break this down in plain English for your ChangeAI portfolio:\n\n" +
+          `Currently tracking **${state.projects.length} ventures**: ${state.projects.map((pr) => pr.name).join(', ')}.\n\n` +
+          "Simple Action Plan:\n" +
+          "1. Keep startup costs strictly at $0.00.\n" +
+          "2. Pick one concrete task for tonight's 8:00 PM – 10:30 PM sprint.\n" +
+          "3. Log any leads or revenue right away so your CFO dashboard stays accurate.";
+      }
+
+      async function callGeminiExecutivePartner(userPrompt) {
+        const apiKey = (state.customApiKey || '').trim();
+        if (!apiKey) return generateFallbackExecutiveReply(userPrompt);
+
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${encodeURIComponent(apiKey)}`;
+        const portfolioContext = state.projects
+          .map((p) => `- ${p.name} (${p.category}, Status: ${p.status}, Pricing: ${p.pricing || 'TBD'}, Goal: ${p.goal || 'N/A'})`)
+          .join('\n');
+
+        const systemPrompt =
+          "You are ChangeAI Assistant, a supportive, proactive executive assistant in a 1-on-1 business meeting with the Founder of ChangeAI. " +
+          "Speak in clear, plain English using actionable step-by-step plans on a $0 budget and an 8:00 PM – 10:30 PM Night-Owl schedule.\n" +
+          "Current ChangeAI ventures:\n" + portfolioContext;
+
+        const recentHistory = state.messages.slice(-6).map((m) => ({
+          role: m.role === 'user' ? 'user' : 'model',
+          parts: [{ text: m.text }]
+        }));
+
+        try {
+          const response = await fetch(apiUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [...recentHistory, { role: 'user', parts: [{ text: userPrompt }] }],
+              systemInstruction: { parts: [{ text: systemPrompt }] }
+            })
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const result = await response.json();
+          const replyText = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (replyText) return replyText.trim();
+        } catch (err) {
+          // Fall back gracefully
+        }
+        return generateFallbackExecutiveReply(userPrompt);
+      }
+
+      async function sendMeetingMessage(text) {
+        const trimmed = text.trim();
+        if (!trimmed) return;
+
+        const nowTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        state.messages.push({ role: 'user', text: trimmed, timestamp: nowTime });
+        renderChatMessages();
+        saveState();
+
+        chatInput.value = '';
+        chatInput.style.height = 'auto';
+        chatSendBtn.disabled = true;
+
+        const typingEl = document.createElement('div');
+        typingEl.id = 'typing-indicator';
+        typingEl.className = 'flex items-start';
+        typingEl.innerHTML = `<div class="rounded-2xl rounded-bl-sm px-4 py-3 bg-obsidian-800 border border-slate-700/80 text-xs text-emerald-400 animate-pulse">Preparing simple action plan...</div>`;
+        chatMessagesEl.appendChild(typingEl);
+        chatMessagesEl.scrollTop = chatMessagesEl.scrollHeight;
+
+        const reply = await callGeminiExecutivePartner(trimmed);
+        const existingTyping = document.getElementById('typing-indicator');
+        if (existingTyping) existingTyping.remove();
+
+        state.messages.push({
+          role: 'assistant',
+          text: reply,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+        });
+        saveState();
+        renderChatMessages();
+        chatSendBtn.disabled = false;
+      }
+
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        sendMeetingMessage(chatInput.value);
+      });
+
+      chatInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMeetingMessage(chatInput.value);
+        }
+      });
+
+      chatInput.addEventListener('input', () => {
+        chatInput.style.height = 'auto';
+        chatInput.style.height = Math.min(chatInput.scrollHeight, 128) + 'px';
+      });
+
+      document.querySelectorAll('.quick-prompt-btn').forEach((btn) => {
+        btn.addEventListener('click', () => sendMeetingMessage(btn.getAttribute('data-prompt')));
+      });
+
+      document.getElementById('clear-chat-btn').addEventListener('click', () => {
+        state.messages = [createDefaultWorkspace().messages[0]];
+        saveState();
+        renderChatMessages();
+        showToast('Meeting transcript reset.', 'info');
+      });
+
+      /* -------------------------------------------------------------------
+         10. MULTI-BUSINESS CFO & FINANCIAL TRACKER
+      ------------------------------------------------------------------- */
+      const cfoFilterEl = document.getElementById('cfo-venture-filter');
+      const cfoLedgerBody = document.getElementById('cfo-ledger-body');
+
+      function renderCFO() {
+        const filter = cfoFilterEl.value || 'ALL';
+        const filtered = filter === 'ALL'
+          ? state.cfoEntries
+          : state.cfoEntries.filter((e) => e.venture === filter);
+
+        let totalRev = 0;
+        let totalCogs = 0;
+        let totalMktg = 0;
+        let totalCustomers = 0;
+
+        filtered.forEach((e) => {
+          totalRev += Number(e.revenue || 0);
+          totalCogs += Number(e.cogs || 0);
+          totalMktg += Number(e.marketing || 0);
+          totalCustomers += Number(e.customers || 0);
+        });
+
+        const netProfit = totalRev - totalCogs - totalMktg;
+        const grossMargin = totalRev > 0 ? ((totalRev - totalCogs) / totalRev) * 100 : 0;
+        const cac = totalCustomers > 0 ? totalMktg / totalCustomers : 0;
+        const enterpriseValue = totalRev * 12 * 3;
+
+        document.getElementById('kpi-revenue').textContent = formatCurrency(totalRev);
+        const profitEl = document.getElementById('kpi-profit');
+        profitEl.textContent = formatCurrency(netProfit);
+        profitEl.className = `text-xl sm:text-2xl font-bold font-mono mt-1 ${netProfit >= 0 ? 'text-white' : 'text-rose-400'}`;
+
+        document.getElementById('kpi-margin').textContent = `${grossMargin.toFixed(1)}%`;
+        document.getElementById('kpi-cac').textContent = formatCurrency(cac);
+        document.getElementById('kpi-valuation').textContent = formatCurrency(enterpriseValue);
+        document.getElementById('cfo-count-badge').textContent = `${filtered.length} ${filtered.length === 1 ? 'entry' : 'entries'}`;
+
+        cfoLedgerBody.innerHTML = '';
+        if (filtered.length === 0) {
+          cfoLedgerBody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-slate-500">No financial entries for this filter yet.</td></tr>`;
+          return;
+        }
+
+        filtered.slice().reverse().forEach((entry) => {
+          const tr = document.createElement('tr');
+          tr.className = 'hover:bg-obsidian-800/40 transition';
+          const totalCost = Number(entry.cogs || 0) + Number(entry.marketing || 0);
+          tr.innerHTML = `
+            <td class="py-3 pr-3">
+              <div class="font-semibold text-slate-200">${escapeHtml(entry.venture)}</div>
+              <div class="text-[10px] font-mono text-slate-500">${escapeHtml(entry.date)}</div>
+            </td>
+            <td class="py-3 px-2 text-slate-300">${escapeHtml(entry.note)}</td>
+            <td class="py-3 px-2 text-right font-mono text-emerald-400 font-semibold">${formatCurrency(entry.revenue)}</td>
+            <td class="py-3 px-2 text-right font-mono text-rose-300">${formatCurrency(totalCost)}</td>
+            <td class="py-3 px-2 text-right font-mono text-cyan-300">${Number(entry.customers || 0)}</td>
+            <td class="py-3 pl-2 text-right">
+              <button type="button" data-del-cfo="${entry.id}" class="text-slate-500 hover:text-rose-400 px-1.5 py-1 rounded text-xs" title="Delete entry">✕</button>
+            </td>
+          `;
+          cfoLedgerBody.appendChild(tr);
+        });
+
+        cfoLedgerBody.querySelectorAll('[data-del-cfo]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-del-cfo');
+            state.cfoEntries = state.cfoEntries.filter((item) => item.id !== id);
+            saveState();
+            renderCFO();
+            renderProjects();
+            showToast('Financial entry removed.', 'info');
+          });
+        });
+      }
+
+      document.getElementById('cfo-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entry = {
+          id: 'cfo-' + Date.now(),
+          date: new Date().toISOString().slice(0, 10),
+          venture: document.getElementById('cfo-venture').value,
+          note: document.getElementById('cfo-note').value.trim(),
+          revenue: parseFloat(document.getElementById('cfo-revenue').value) || 0,
+          cogs: parseFloat(document.getElementById('cfo-cogs').value) || 0,
+          marketing: parseFloat(document.getElementById('cfo-marketing').value) || 0,
+          customers: parseInt(document.getElementById('cfo-customers').value, 10) || 0
+        };
+        state.cfoEntries.push(entry);
+        saveState();
+        renderCFO();
+        renderProjects();
+        e.target.reset();
+        showToast('Financial transaction logged & synced to Portfolio!');
+      });
+
+      cfoFilterEl.addEventListener('change', renderCFO);
+
+      /* -------------------------------------------------------------------
+         11. SALESPERSON RECEPTIONIST CALL & LEAD LOGGER
+      ------------------------------------------------------------------- */
+      let activeLeadFilter = 'ALL';
+      const leadsGrid = document.getElementById('leads-grid');
+
+      document.getElementById('copy-script-btn').addEventListener('click', () => {
+        const scriptText = document.getElementById('receptionist-script-text').innerText;
+        copyTextToClipboard(scriptText, 'Receptionist pitch script copied!');
+      });
+
+      function renderLeads() {
+        const filtered = activeLeadFilter === 'ALL'
+          ? state.leads
+          : state.leads.filter((l) => l.outcome === activeLeadFilter);
+
+        document.getElementById('lead-count-label').textContent = `${filtered.length} ${filtered.length === 1 ? 'lead' : 'leads'} shown`;
+        leadsGrid.innerHTML = '';
+
+        if (filtered.length === 0) {
+          leadsGrid.innerHTML = `<div class="col-span-full glass-panel rounded-2xl p-6 text-center text-xs text-slate-500">No call logs match this filter yet.</div>`;
+          return;
+        }
+
+        filtered.slice().reverse().forEach((lead) => {
+          const badgeColors =
+            lead.outcome === 'Converted'
+              ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30'
+              : lead.outcome === 'Callback Scheduled'
+              ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
+              : lead.outcome === 'Pitched & Interested'
+              ? 'bg-amber-500/15 text-amber-300 border-amber-500/30'
+              : 'bg-slate-800 text-slate-300 border-slate-700';
+
+          const card = document.createElement('div');
+          card.className = 'glass-panel rounded-2xl p-4 flex flex-col justify-between space-y-3';
+          card.innerHTML = `
+            <div class="space-y-2">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <h4 class="text-sm font-bold text-white">${escapeHtml(lead.name)}</h4>
+                  <p class="text-xs font-mono text-cyan-300">${escapeHtml(lead.contact)}</p>
+                </div>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold border ${badgeColors}">${escapeHtml(lead.outcome)}</span>
+              </div>
+              <div class="flex flex-wrap gap-1.5 text-[11px]">
+                <span class="px-2 py-0.5 rounded-md bg-obsidian-900 border border-slate-800 text-slate-300">${escapeHtml(lead.venture)}</span>
+                <span class="px-2 py-0.5 rounded-md bg-obsidian-900 border border-slate-800 text-emerald-400">Callback: ${escapeHtml(lead.callbackTime || '8:00 PM+')}</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">${escapeHtml(lead.notes || 'No extra notes.')}</p>
+            </div>
+
+            <div class="pt-2.5 border-t border-slate-800/80 flex items-center justify-between gap-2">
+              <select data-lead-status="${lead.id}" class="bg-obsidian-800 border border-slate-700 rounded-lg px-2 py-1 text-[11px] text-slate-200 focus:outline-none">
+                <option value="Pitched & Interested" ${lead.outcome === 'Pitched & Interested' ? 'selected' : ''}>Pitched &amp; Interested</option>
+                <option value="Callback Scheduled" ${lead.outcome === 'Callback Scheduled' ? 'selected' : ''}>Callback Scheduled</option>
+                <option value="Voicemail Logged" ${lead.outcome === 'Voicemail Logged' ? 'selected' : ''}>Voicemail Logged</option>
+                <option value="Converted" ${lead.outcome === 'Converted' ? 'selected' : ''}>Converted</option>
+              </select>
+
+              <div class="flex items-center gap-1.5">
+                <button type="button" data-copy-lead="${lead.id}" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/30 text-[11px] font-semibold text-emerald-300 transition">
+                  Copy Email Alert
+                </button>
+                <button type="button" data-del-lead="${lead.id}" class="px-2 py-1 rounded-lg text-slate-500 hover:text-rose-400 text-xs" title="Delete lead">✕</button>
+              </div>
+            </div>
+          `;
+          leadsGrid.appendChild(card);
+        });
+
+        leadsGrid.querySelectorAll('[data-lead-status]').forEach((sel) => {
+          sel.addEventListener('change', () => {
+            const id = sel.getAttribute('data-lead-status');
+            const target = state.leads.find((l) => l.id === id);
+            if (target) {
+              target.outcome = sel.value;
+              saveState();
+              renderLeads();
+              showToast(`Lead updated to "${sel.value}".`);
+            }
+          });
+        });
+
+        leadsGrid.querySelectorAll('[data-copy-lead]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-copy-lead');
+            const lead = state.leads.find((l) => l.id === id);
+            if (!lead) return;
+            const summary =
+              `Subject: [ChangeAI Lead Alert] ${lead.name} — ${lead.venture}\n\n` +
+              `Caller Name: ${lead.name}\n` +
+              `Contact: ${lead.contact}\n` +
+              `Venture Interested In: ${lead.venture}\n` +
+              `Receptionist Outcome: ${lead.outcome}\n` +
+              `Scheduled Evening Callback: ${lead.callbackTime}\n` +
+              `Notes: ${lead.notes}`;
+            copyTextToClipboard(summary, 'Email alert summary copied! Ready to paste into Gmail.');
+          });
+        });
+
+        leadsGrid.querySelectorAll('[data-del-lead]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-del-lead');
+            state.leads = state.leads.filter((l) => l.id !== id);
+            saveState();
+            renderLeads();
+            showToast('Lead log deleted.', 'info');
+          });
+        });
+      }
+
+      document.getElementById('lead-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const newLead = {
+          id: 'lead-' + Date.now(),
+          name: document.getElementById('lead-name').value.trim(),
+          contact: document.getElementById('lead-contact').value.trim(),
+          venture: document.getElementById('lead-venture').value,
+          outcome: document.getElementById('lead-outcome').value,
+          callbackTime: document.getElementById('lead-callback').value.trim() || '8:00 PM Tonight',
+          notes: document.getElementById('lead-notes').value.trim(),
+          createdAt: new Date().toLocaleDateString()
+        };
+        state.leads.push(newLead);
+        saveState();
+        renderLeads();
+        e.target.reset();
+        document.getElementById('lead-callback').value = '8:15 PM Tonight';
+        showToast('Call & lead logged! Ready for your 8:00 PM callback.');
+      });
+
+      document.querySelectorAll('.lead-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeLeadFilter = btn.getAttribute('data-lead-filter');
+          document.querySelectorAll('.lead-filter-btn').forEach((b) => {
+            const active = b === btn;
+            b.className = active
+              ? 'lead-filter-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+              : 'lead-filter-btn px-3 py-1.5 rounded-lg text-xs font-medium bg-obsidian-800 text-slate-400 hover:text-white';
+          });
+          renderLeads();
+        });
+      });
+
+      /* -------------------------------------------------------------------
+         12. YOUTUBE & SOCIAL PROMO STUDIO + SPRINT TASKS
+      ------------------------------------------------------------------- */
+      let promoVariant = 0;
+      const promoOutput = document.getElementById('promo-output');
+      const promoFormatBadge = document.getElementById('promo-format-badge');
+
+      function buildDynamicPromoCopy(project, channel) {
+        const name = project ? project.name : 'ChangeAI Study Platform';
+        const category = project ? project.category : 'EdTech';
+        const pricing = project && project.pricing ? project.pricing : 'Free Starter + $1 / $3 / $5 Passes';
+        const goal = project && project.goal ? project.goal : 'Helping students study smarter and pass exams on a $0 budget.';
+        const cleanTag = name.replace(/[^a-zA-Z0-9]/g, '');
+        const alt = promoVariant % 2 === 1;
+
+        if (channel === 'yt_shorts') {
+          promoFormatBadge.textContent = 'YouTube Shorts (60s Script + Hook + Visual Cues)';
+          return alt
+            ? `🎬 YOUTUBE SHORTS SCRIPT (60s) — ${name}\n\n` +
+              `[0:00–0:03 VISUAL & VERBAL HOOK]\n` +
+              `Visual: Screen recording open, fast zoom onto a tricky ${category} problem.\n` +
+              `Voiceover: "Stop wasting 3 hours stuck on ${category} revision—watch what ${name} does in 15 seconds..."\n\n` +
+              `[0:03–0:38 STEP-BY-STEP DEMO]\n` +
+              `Visual: Show live walkthrough inside ${name} with highlighted key steps.\n` +
+              `Voiceover: "${goal} Instead of dumping a confusing answer, it guides you step-by-step. Start on our Free Tier right now, or unlock full exam mode with ${pricing}."\n\n` +
+              `[0:38–0:55 CALL TO ACTION (CTA)]\n` +
+              `Visual: Point arrow down to pinned comment + subscribe button.\n` +
+              `Voiceover: "Tap the link in the pinned comment to try ${name} tonight—and subscribe for daily ${category} hacks!"\n\n` +
+              `📌 TITLE: Master ${category} Faster with ${name} (#Shorts)\n` +
+              `🏷️ TAGS: #ChangeAI #${cleanTag} #StudyTips #ExamPrep #YouTubeShorts`
+            : `🎬 YOUTUBE SHORTS SCRIPT (60s) — ${name}\n\n` +
+              `[0:00–0:03 VISUAL & VERBAL HOOK]\n` +
+              `Visual: Split screen — stressed student vs. clean ${name} dashboard.\n` +
+              `Voiceover: "3 mistakes costing students easy marks in ${category}—and the ChangeAI tool fixing all three..."\n\n` +
+              `[0:03–0:40 VALUE BREAKDOWN]\n` +
+              `Visual: Highlight 3 quick bullet points on screen as you speak.\n` +
+              `Voiceover: "1) Memorizing without understanding. 2) Studying with zero feedback. 3) Overpaying for help. ${name} solves this: ${goal}"\n\n` +
+              `[0:40–0:58 CALL TO ACTION (CTA)]\n` +
+              `Visual: Show pricing card (${pricing}).\n` +
+              `Voiceover: "Start free today—link in the pinned comment!"\n\n` +
+              `📌 TITLE: 3 ${category} Hacks Every Student Needs | ${name} #Shorts\n` +
+              `🏷️ TAGS: #ChangeAI #${cleanTag} #StudentHacks #Revision #Shorts`;
+        }
+
+        if (channel === 'yt_long') {
+          promoFormatBadge.textContent = 'YouTube Video (Title, Thumbnail, Intro Hook & Description)';
+          return `🎥 YOUTUBE LONG-FORM VIDEO BLUEPRINT — ${name}\n\n` +
+            `📌 SEO VIDEO TITLE:\n` +
+            `How to Ace ${category} Exams Using ${name} (Full Step-by-Step Walkthrough)\n\n` +
+            `🖼️ THUMBNAIL IDEA:\n` +
+            `Left side: Bright, clean screenshot of ${name} solving a real problem.\n` +
+            `Right side: Bold 3-word text "PASS ${category.toUpperCase()} FAST" with high-contrast emerald/yellow badge.\n\n` +
+            `🎙️ INTRO HOOK (0:00–0:30):\n` +
+            `"If you've ever stared at a ${category} question and had no idea where to start, this video will save your grade. Today I'm walking you through ${name}—built under ChangeAI to help students learn step-by-step without expensive tutors."\n\n` +
+            `📝 VIDEO DESCRIPTION:\n` +
+            `Welcome to ChangeAI! In today's session, we demonstrate **${name}** (${category}).\n\n` +
+            `🚀 What You'll Learn:\n` +
+            `• ${goal}\n` +
+            `• How to get started on our Free Tier and upgrade anytime (${pricing})\n\n` +
+            `🔗 Try ${name} now: [Insert Your Link]\n` +
+            `#ChangeAI #${cleanTag} #${category.replace(/\s+/g, '')} #ExamPreparation #StudyWithMe`;
+        }
+
+        if (channel === 'whatsapp') {
+          promoFormatBadge.textContent = 'WhatsApp Status / Student Group Hook';
+          return alt
+            ? `🚀 **${name}** (by ChangeAI)\n\n${goal}\n\n✅ Pricing: ${pricing}\n📲 Reply "INFO" or tap the link to test it free tonight!`
+            : `Exam stress? 📚 Check out **${name}** under ChangeAI!\n\nBuilt for ${category} learners: ${goal}\n\nStart on our Free Tier or unlock full access (${pricing}). Share with your study group!`;
+        }
+
+        if (channel === 'tiktok') {
+          promoFormatBadge.textContent = 'TikTok / Reels Short Hook';
+          return `HOOK (0–3s): "POV: You just found a ${category} tool that actually explains every step instead of leaving you confused..."\n\n` +
+            `BODY: Screen-record ${name} in action (${goal}). Mention ${pricing}.\n\n` +
+            `CTA: "Link in bio to try ${name} free tonight! #ChangeAI #${cleanTag} #StudyTok"`;
+        }
+
+        promoFormatBadge.textContent = 'Instagram Caption + CTA';
+        return `Level up your ${category} results with **${name}** under ChangeAI. ✨\n\n` +
+          `${goal}\n\n` +
+          `💳 Access: ${pricing}\n` +
+          `👉 Tap the link in bio to get started today!\n\n` +
+          `#ChangeAI #${cleanTag} #${category.replace(/\s+/g, '')} #StudentSuccess #StudySmart`;
+      }
+
+      function generatePromo() {
+        const selectedId = document.getElementById('promo-venture').value;
+        const channel = document.getElementById('promo-channel').value;
+        const project = state.projects.find((p) => p.id === selectedId) || state.projects[0];
+        promoOutput.value = buildDynamicPromoCopy(project, channel);
+        promoVariant += 1;
+      }
+
+      document.getElementById('generate-promo-btn').addEventListener('click', () => {
+        generatePromo();
+        showToast('Fresh promo script generated!');
+      });
+
+      document.getElementById('promo-venture').addEventListener('change', generatePromo);
+      document.getElementById('promo-channel').addEventListener('change', generatePromo);
+
+      document.getElementById('copy-promo-btn').addEventListener('click', () => {
+        copyTextToClipboard(promoOutput.value, 'Promo script copied to clipboard!');
+      });
+
+      const sprintTaskList = document.getElementById('sprint-task-list');
+      const checklistProgress = document.getElementById('checklist-progress');
+
+      function renderSprintTasks() {
+        const doneCount = state.sprintTasks.filter((t) => t.done).length;
+        checklistProgress.textContent = `${doneCount}/${state.sprintTasks.length} Done`;
+        sprintTaskList.innerHTML = '';
+
+        if (state.sprintTasks.length === 0) {
+          sprintTaskList.innerHTML = `<li class="text-xs text-slate-500 text-center py-4">No sprint tasks yet. Add your first 15-minute goal above!</li>`;
+          return;
+        }
+
+        state.sprintTasks.forEach((task) => {
+          const li = document.createElement('li');
+          li.className = 'flex items-center justify-between gap-2.5 p-3 rounded-xl bg-obsidian-800/80 border border-slate-700/70';
+          li.innerHTML = `
+            <label class="flex items-center gap-2.5 cursor-pointer flex-1 min-w-0">
+              <input type="checkbox" data-toggle-task="${task.id}" ${task.done ? 'checked' : ''} class="w-4 h-4 rounded accent-emerald-500 shrink-0" />
+              <span class="text-xs ${task.done ? 'line-through text-slate-500' : 'text-slate-200'} truncate">${escapeHtml(task.text)}</span>
+            </label>
+            <button type="button" data-del-task="${task.id}" class="text-slate-500 hover:text-rose-400 text-xs px-1.5" title="Remove task">✕</button>
+          `;
+          sprintTaskList.appendChild(li);
+        });
+
+        sprintTaskList.querySelectorAll('[data-toggle-task]').forEach((cb) => {
+          cb.addEventListener('change', () => {
+            const id = cb.getAttribute('data-toggle-task');
+            const task = state.sprintTasks.find((t) => t.id === id);
+            if (task) {
+              task.done = cb.checked;
+              saveState();
+              renderSprintTasks();
+            }
+          });
+        });
+
+        sprintTaskList.querySelectorAll('[data-del-task]').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-del-task');
+            state.sprintTasks = state.sprintTasks.filter((t) => t.id !== id);
+            saveState();
+            renderSprintTasks();
+          });
+        });
+      }
+
+      document.getElementById('sprint-task-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('sprint-task-input');
+        const text = input.value.trim();
+        if (!text) return;
+        state.sprintTasks.push({ id: 'task-' + Date.now(), text, done: false });
+        saveState();
+        renderSprintTasks();
+        input.value = '';
+      });
+
+      /* -------------------------------------------------------------------
+         13. DAILY FOUNDER MOTIVATION & EVENING KICKOFF ENGINE
+      ------------------------------------------------------------------- */
+      const MOTIVATION_BOOSTS = [
+        {
+          quote: "Concentrate all your thoughts upon the work at hand. The sun's rays do not burn until brought to a focus.",
+          author: "Alexander Graham Bell",
+          prompt: "Pick ONE ChangeAI venture tonight between 8:00 PM and 10:30 PM. Ship one tangible improvement—a YouTube Short, a lead follow-up, or a product tweak—before closing your laptop."
+        },
+        {
+          quote: "Success is the sum of small efforts, repeated day in and day out.",
+          author: "Robert Collier",
+          prompt: "Two and a half focused hours every night equals 17.5 hours of pure builder momentum every week. Protect your 8:00 PM – 10:30 PM block like an executive board meeting."
+        },
+        {
+          quote: "Do not wait: the time will never be 'just right'. Start where you stand, and work with whatever tools you may have at your command.",
+          author: "Napoleon Hill",
+          prompt: "$0 budget is your superpower—it forces you to validate real demand first. Message 3 prospective students or leads tonight and ask what they need most."
+        },
+        {
+          quote: "An investment in knowledge pays the best interest.",
+          author: "Benjamin Franklin",
+          prompt: "Every study guide, Socratic prompt, and classroom tool you build under ChangeAI compounds over time. Focus on clarity and simplicity for your users tonight."
+        },
+        {
+          quote: "Action is the foundational key to all success.",
+          author: "Pablo Picasso",
+          prompt: "Avoid over-planning. Use three 15-minute sprints tonight: 1) Call/WhatsApp leads, 2) Post 1 YouTube Short, 3) Log numbers in your CFO ledger."
+        }
+      ];
+
+      function renderMotivation() {
+        const daySeed = Math.floor(Date.now() / 86400000);
+        const idx = (daySeed + (state.motivationIndex || 0)) % MOTIVATION_BOOSTS.length;
+        const boost = MOTIVATION_BOOSTS[idx];
+        const activeVentures = state.projects.map((p) => p.name).join(', ');
+
+        document.getElementById('motivation-date-pill').textContent =
+          `Evening Kickoff • ${new Date().toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric' })}`;
+        document.getElementById('motivation-quote-text').textContent = `“${boost.quote}”`;
+        document.getElementById('motivation-quote-author').textContent = `— ${boost.author}`;
+        document.getElementById('motivation-sprint-prompt').textContent = boost.prompt;
+        document.getElementById('founder-email-input').value = state.founderEmail || '';
+
+        const subject = encodeURIComponent(`[ChangeAI 8:00 PM Kickoff] Daily Founder Boost — ${new Date().toLocaleDateString()}`);
+        const bodyText =
+          `ChangeAI Executive Evening Kickoff (8:00 PM – 10:30 PM Night-Owl Sprint)\n\n` +
+          `"${boost.quote}" — ${boost.author}\n\n` +
+          `Tonight's Focus Prompt:\n${boost.prompt}\n\n` +
+          `Active ChangeAI Portfolio:\n${activeVentures}\n\n` +
+          `— Sent from ChangeAI Assistant`;
+        const recipient = encodeURIComponent((state.founderEmail || '').trim());
+        document.getElementById('send-motivation-mailto').href = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+      }
+
+      document.getElementById('new-motivation-btn').addEventListener('click', () => {
+        state.motivationIndex = (state.motivationIndex || 0) + 1;
+        saveState();
+        renderMotivation();
+        showToast('Fresh founder motivation boost loaded!');
+      });
+
+      document.getElementById('founder-email-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        state.founderEmail = document.getElementById('founder-email-input').value.trim();
+        saveState();
+        renderMotivation();
+        showToast(state.founderEmail ? `Saved founder email: ${state.founderEmail}` : 'Founder email cleared.');
+      });
+
+      document.getElementById('copy-motivation-btn').addEventListener('click', () => {
+        const quote = document.getElementById('motivation-quote-text').textContent;
+        const author = document.getElementById('motivation-quote-author').textContent;
+        const prompt = document.getElementById('motivation-sprint-prompt').textContent;
+        copyTextToClipboard(`${quote} ${author}\n\n8:00 PM Focus: ${prompt}`, 'Daily motivation copied!');
+      });
+
+      const gasModal = document.getElementById('gas-modal');
+      const gasCodeBlock = document.getElementById('gas-code-block');
+
+      function updateGasSnippet() {
+        const emailPlaceholder = (state.founderEmail || 'YOUR_EMAIL@gmail.com').trim();
+        gasCodeBlock.textContent =
+`function sendNightOwlBoost() {
+  var email = "${emailPlaceholder}";
+  var subject = "[ChangeAI 8:00 PM Sprint] Evening Founder Kickoff";
+  var body = "It is almost 8:00 PM! Time for your 8:00 PM - 10:30 PM ChangeAI sprint.\\n\\n"
+           + "1. Follow up on today's Receptionist leads.\\n"
+           + "2. Publish 1 YouTube Short or WhatsApp hook.\\n"
+           + "3. Log today's numbers in ChangeAI Assistant.";
+  MailApp.sendEmail(email, subject, body);
+}`;
+      }
+
+      document.getElementById('open-gas-modal-btn').addEventListener('click', () => {
+        updateGasSnippet();
+        gasModal.classList.remove('hidden');
+      });
+
+      document.getElementById('close-gas-modal-btn').addEventListener('click', () => {
+        gasModal.classList.add('hidden');
+      });
+
+      gasModal.addEventListener('click', (e) => {
+        if (e.target === gasModal) gasModal.classList.add('hidden');
+      });
+
+      document.getElementById('copy-gas-btn').addEventListener('click', () => {
+        copyTextToClipboard(gasCodeBlock.textContent, 'Google Apps Script copied! Paste into Extensions > Apps Script.');
+      });
+
+      /* -------------------------------------------------------------------
+         14. BACKUP, RESTORE, CSV & VAULT RE-ENCRYPTION SETTINGS
+      ------------------------------------------------------------------- */
+      function triggerFileDownload(filename, content, mimeType) {
+        const blob = new Blob([content], { type: mimeType });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      document.getElementById('export-json-btn').addEventListener('click', () => {
+        const stamp = new Date().toISOString().slice(0, 10);
+        triggerFileDownload(
+          `changeai-assistant-backup-${stamp}.json`,
+          JSON.stringify(state, null, 2),
+          'application/json'
+        );
+        showToast('Full JSON backup exported!');
+      });
+
+      document.getElementById('import-json-input').addEventListener('change', (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const imported = JSON.parse(ev.target.result);
+            if (!imported || typeof imported !== 'object') throw new Error('Invalid format');
+            state = normalizeWorkspace(imported);
+            saveState();
+            renderAll();
+            showToast('Backup imported and encrypted into your local vault!');
+          } catch (err) {
+            showToast('Could not read backup file. Please select a valid ChangeAI .json backup.', 'error');
+          }
+          e.target.value = '';
+        };
+        reader.readAsText(file);
+      });
+
+      document.getElementById('export-csv-btn').addEventListener('click', () => {
+        const lines = [];
+        lines.push('SECTION,DATE_OR_STATUS,VENTURE_OR_CATEGORY,NAME_OR_NOTE,REVENUE_OR_CONTACT,COGS_OR_OUTCOME,MARKETING_OR_CALLBACK,CUSTOMERS_OR_GOAL');
+        state.projects.forEach((p) => {
+          lines.push([
+            'PROJECT',
+            `"${(p.status || '').replace(/"/g, '""')}"`,
+            `"${(p.category || '').replace(/"/g, '""')}"`,
+            `"${(p.name || '').replace(/"/g, '""')}"`,
+            `"${(p.pricing || '').replace(/"/g, '""')}"`,
+            `"${(p.launchDate || '').replace(/"/g, '""')}"`,
+            '',
+            `"${(p.goal || '').replace(/"/g, '""')}"`
+          ].join(','));
+        });
+        state.cfoEntries.forEach((c) => {
+          lines.push([
+            'FINANCIAL',
+            c.date,
+            `"${(c.venture || '').replace(/"/g, '""')}"`,
+            `"${(c.note || '').replace(/"/g, '""')}"`,
+            c.revenue,
+            c.cogs,
+            c.marketing,
+            c.customers
+          ].join(','));
+        });
+        state.leads.forEach((l) => {
+          lines.push([
+            'LEAD',
+            l.createdAt || '',
+            `"${(l.venture || '').replace(/"/g, '""')}"`,
+            `"${(l.name || '').replace(/"/g, '""')}"`,
+            `"${(l.contact || '').replace(/"/g, '""')}"`,
+            `"${(l.outcome || '').replace(/"/g, '""')}"`,
+            `"${(l.callbackTime || '').replace(/"/g, '""')}"`,
+            `"${(l.notes || '').replace(/"/g, '""')}"`
+          ].join(','));
+        });
+        const stamp = new Date().toISOString().slice(0, 10);
+        triggerFileDownload(`changeai-sheets-export-${stamp}.csv`, lines.join('\n'), 'text/csv;charset=utf-8;');
+        showToast('CSV exported! Ready to open in Google Sheets.');
+      });
+
+      document.getElementById('change-pin-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const val = document.getElementById('new-pin-input').value;
+        if (!val || val.length < 4) {
+          showToast('Use at least 4 characters (8+ recommended).', 'error');
+          return;
+        }
+        if (!activeDekBytes || !vaultEnvelope) {
+          showToast('Vault key unavailable. Re-unlock and try again.', 'error');
+          return;
+        }
+        try {
+          vaultEnvelope.secretWrap = await wrapDekWithSecret(activeDekBytes, val);
+          vaultEnvelope.updatedAt = new Date().toISOString();
+          writeVaultEnvelope(vaultEnvelope);
+          document.getElementById('new-pin-input').value = '';
+          showToast('Secret updated and vault re-encrypted!');
+        } catch (err) {
+          showToast('Failed to re-encrypt secret.', 'error');
+        }
+      });
+
+      document.getElementById('rotate-recovery-key-btn').addEventListener('click', async () => {
+        if (!activeDekBytes || !vaultEnvelope) {
+          showToast('Vault key unavailable.', 'error');
+          return;
+        }
+        try {
+          const freshKeyFormatted = generateFormattedRecoveryKey();
+          vaultEnvelope.recoveryWrap = await wrapDekWithSecret(activeDekBytes, normalizeRecoveryKey(freshKeyFormatted));
+          vaultEnvelope.updatedAt = new Date().toISOString();
+          writeVaultEnvelope(vaultEnvelope);
+          copyTextToClipboard(freshKeyFormatted, `New Master Recovery Key copied: ${freshKeyFormatted}`);
+        } catch (err) {
+          showToast('Could not generate a new recovery key.', 'error');
+        }
+      });
+
+      document.getElementById('api-key-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        state.customApiKey = document.getElementById('custom-api-key-input').value.trim();
+        saveState();
+        showToast(state.customApiKey ? 'Custom Gemini API key saved inside encrypted vault.' : 'Using built-in executive portfolio intelligence.', 'info');
+      });
+
+      let wipeArmed = false;
+      const resetAllBtn = document.getElementById('reset-all-btn');
+      resetAllBtn.addEventListener('click', () => {
+        if (!wipeArmed) {
+          wipeArmed = true;
+          resetAllBtn.textContent = 'Click again to wipe vault';
+          setTimeout(() => {
+            wipeArmed = false;
+            resetAllBtn.textContent = 'Wipe Encrypted Vault';
+          }, 4000);
+          return;
+        }
+        localStorage.removeItem(VAULT_STORAGE_KEY);
+        localStorage.removeItem(LEGACY_PLAIN_KEY);
+        vaultEnvelope = null;
+        wipeArmed = false;
+        resetAllBtn.textContent = 'Wipe Encrypted Vault';
+        lockAppSession();
+        showToast('Encrypted vault wiped.', 'info');
+      });
+
+      /* -------------------------------------------------------------------
+         15. INITIALIZATION
+      ------------------------------------------------------------------- */
+      function renderAll() {
+        updateSprintDisplay();
+        syncProjectDropdowns();
+        switchTab(state.activeTab || 'meeting');
+        renderChatMessages();
+        renderProjects();
+        renderCFO();
+        renderLeads();
+        generatePromo();
+        renderSprintTasks();
+        renderMotivation();
+        document.getElementById('custom-api-key-input').value = state.customApiKey || '';
+      }
+
+      renderLockScreen();
+    })();
+  </script>
+</body>
+</html>
